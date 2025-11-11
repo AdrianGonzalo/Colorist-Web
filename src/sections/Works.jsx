@@ -3,19 +3,28 @@ import { useState } from "react";
 import { videosData } from "@/data/videosData";
 import FilterBar from "@/components/FilterBar";
 import VideoGrid from "@/components/VideoGrid";
+import { motion } from "framer-motion";
 
 export default function Works() {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
-  const categories = ["Todos", "Películas", "Comerciales", "Musicales"];
+  const categories = ["All", "Movies", "Commercials", "Musicals"];
 
   const filteredVideos =
-    selectedCategory === "Todos"
+    selectedCategory === "All"
       ? videosData
       : videosData.filter((v) => v.category === selectedCategory);
 
   return (
     <div className="bg-neutral-900 text-white min-h-screen py-10 px-4">
-      <h1 className="text-3xl font-extrabold text-center mb-8">Trabajos</h1>
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-5xl md:text-6xl font-extralight tracking-wide text-gray-800 dark:text-gray-100 mb-12 relative text-center"
+      >
+        Works
+        <span className="absolute -bottom-2 left-1/2 w-20 h-[2px] bg-neutral-700 dark:bg-neutral-300 transform -translate-x-1/2" />
+      </motion.h2>
 
       <FilterBar
         categories={categories}

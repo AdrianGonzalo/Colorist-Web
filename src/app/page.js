@@ -21,7 +21,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="min-h-screen bg-black text-white flex flex-col items-center justify-center space-y-20 py-40">
+      <section className="min-h-screen  text-white flex flex-col items-center justify-center ">
         <About />
       </section>
 
@@ -29,7 +29,7 @@ export default function Home() {
         <Works />
       </section>
 
-      <section className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center space-y-20 py-40">
+      <section className="min-h-screen  text-white flex flex-col items-center justify-center">
         <Contact />
       </section>
     </main>
