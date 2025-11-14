@@ -31,7 +31,7 @@ export default function Scroll() {
       {visible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-black text-white shadow-lg hover:bg-gray-800 transition-all duration-300"
+          className="z-50 fixed bottom-8 right-8 p-3 rounded-full bg-[#3B82F6] text-white shadow-lg hover:bg-gray-800 transition-all duration-300"
           aria-label="Volver arriba"
         >
           <ArrowUp className="w-5 h-5" />

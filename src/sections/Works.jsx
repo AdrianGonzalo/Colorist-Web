@@ -6,7 +6,7 @@ import VideoGrid from "@/components/VideoGrid";
 import { motion } from "framer-motion";
 
 export default function Works() {
-  const [selectedCategory, setSelectedCategory] = useState("Todos");
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const categories = ["All", "Movies", "Commercials", "Musicals"];
 
   const filteredVideos =
@@ -15,7 +15,7 @@ export default function Works() {
       : videosData.filter((v) => v.category === selectedCategory);
 
   return (
-    <div className="bg-neutral-900 text-white min-h-screen py-10 px-4">
+    <div className=" text-white min-h-screen py-10 px-1">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -7,10 +7,8 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative flex flex-col md:flex-row items-center justify-center min-h-screen px-8 py-24 bg-neutral-50 dark:bg-neutral-900 overflow-hidden w-7xl"
+      className="relative flex flex-col md:flex-row items-center px-8 py-30 overflow-hidden max-w-7xl mx-auto"
     >
-      <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-neutral-200 via-neutral-400/10 to-neutral-900 pointer-events-none dark:from-neutral-800 dark:via-neutral-700/20 dark:to-black" />
-
       <motion.div
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}

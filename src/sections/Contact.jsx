@@ -35,7 +35,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col items-center justify-center bg-neutral-900 text-neutral-100 px-6 py-16"
+      className="flex flex-col items-center justify-center  text-neutral-100 px-6 py-16"
     >
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
