@@ -40,6 +40,7 @@ export default function Contact() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         className="text-5xl md:text-6xl font-extralight tracking-wide text-gray-800 dark:text-gray-100 mb-12 relative "
       >
@@ -51,6 +52,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="flex-1 space-y-6 text-center md:text-left"
         >
@@ -80,10 +82,6 @@ export default function Contact() {
               <Instagram size={18} />
             </a>
           </div>
-
-          <p className="text-sm text-neutral-500 mt-10">
-            © 2025 Helí Suárez | Colorist
-          </p>
         </motion.div>
 
         <motion.form
@@ -91,6 +89,7 @@ export default function Contact() {
           onSubmit={sendEmail}
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="flex-1 w-full bg-neutral-900 border border-neutral-700 rounded-md p-8 space-y-6"
         >

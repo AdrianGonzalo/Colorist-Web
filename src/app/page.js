@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import Carrusel from "@/components/Carrusel";
 import About from "@/sections/Aboutme";
 import Contact from "@/sections/Contact";
@@ -10,7 +8,7 @@ export default function Home() {
     <main className="relative flex flex-col ">
       <div className="pointer-events-none absolute inset-0 mix-blend-soft-light bg-[url('/Textures/texture2.png')] bg-repeat"></div>
 
-      <section id="inicio" className="relative w-screen h-screen">
+      <section id="inicio" className="relative w-full h-screen overflow-hidden">
         <Carrusel />
         <div className="absolute inset-0 flex flex-col items-center justify-center ">
           <h1 className="z-40 text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">

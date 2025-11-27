@@ -82,7 +82,6 @@
 
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -102,7 +101,7 @@ export default function Navbar() {
     const section = document.getElementById(id);
     if (section) {
       window.scrollTo({
-        top: section.offsetTop,
+        top: section.offsetTop - navbarHeight,
         behavior: "smooth",
       });
     }

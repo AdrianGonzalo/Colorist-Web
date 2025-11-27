@@ -12,10 +12,11 @@ export default function About() {
       <motion.div
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.8 }}
         className="relative md:w-1/3 mb-10 md:mb-0 md:mr-12 flex justify-center z-10"
       >
-        <div className="relative w-64 h-80 rounded-2xl overflow-hidden shadow-xl group">
+        <div className="relative w-64 h-80 overflow-hidden shadow-xl group">
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10" />
           <Image
             src="/Test/Imagen.jpg"
@@ -30,6 +31,7 @@ export default function About() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ delay: 0.2, duration: 0.8 }}
         className="md:w-2/3 text-center md:text-left space-y-7 text-gray-700 dark:text-gray-300 leading-relaxed z-10"
       >
