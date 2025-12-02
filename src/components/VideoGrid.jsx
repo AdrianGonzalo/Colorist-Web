@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import VideoModal from "./VideoModal"; // ← IMPORTANTE
+import VideoModal from "./VideoModal";
 
 function getYouTubeID(url) {
   const patterns = [
@@ -23,7 +23,7 @@ function truncate(text, n = 80) {
 
 export default function VideoGrid({ videos }) {
   const [hovered, setHovered] = useState(null);
-  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedVideoIndex, setSelectedVideoIndex] = useState(null);
 
   return (
     <>
@@ -33,7 +33,7 @@ export default function VideoGrid({ videos }) {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
       >
-        {videos.map((video) => {
+        {videos.map((video, i) => {
           const id = getYouTubeID(video.url);
           const thumb = id
             ? `https://img.youtube.com/vi/${id}/hqdefault.jpg`
@@ -53,7 +53,7 @@ export default function VideoGrid({ videos }) {
                 e.preventDefault();
                 e.stopPropagation();
               }}
-              onClick={() => setSelectedVideo(video)} // ← ABRE EL MODAL
+              onClick={() => setSelectedVideoIndex(i)}
             >
               {/* Título overlay */}
               <div className="absolute inset-0 z-20 flex flex-col justify-end pointer-events-none">
@@ -103,10 +103,12 @@ export default function VideoGrid({ videos }) {
       </motion.div>
 
       {/* MODAL */}
-      {selectedVideo && (
+      {selectedVideoIndex !== null && (
         <VideoModal
-          video={selectedVideo}
-          onClose={() => setSelectedVideo(null)}
+          videos={videos}
+          currentIndex={selectedVideoIndex}
+          setCurrentIndex={setSelectedVideoIndex}
+          onClose={() => setSelectedVideoIndex(null)}
         />
       )}
     </>

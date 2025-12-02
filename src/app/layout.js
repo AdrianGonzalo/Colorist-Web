@@ -3,7 +3,6 @@ import "./globals.css";
 
 import Navbar from "@/components/Navbar";
 import Scroll from "@/components/Scroll";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Footer from "@/components/Footer";
 
 const genos = Genos({
@@ -21,8 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={genos.className}>
         <Navbar />
-        {/* <Scroll /> */}
-        <WhatsAppFloat />
+        <Scroll />
         {children}
         <Footer />
       </body>

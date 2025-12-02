@@ -64,10 +64,13 @@ export default function Contact() {
             and visual consultations.
           </p>
 
-          <div className="space-y-2 text-neutral-400">
-            <p className="flex items-center justify-center md:justify-start gap-2">
-              Ejemplo@gmail.com <Mail size={18} />
-            </p>
+          <div className="space-y-2 text-neutral-400 ">
+            <div className="flex items-center justify-center md:justify-start gap-2">
+              <a href="mailto:heli.suarez@outlook.com">
+                heli.suarez@outlook.com
+              </a>
+              <Mail size={18} />
+            </div>
             <p className="flex items-center justify-center md:justify-start gap-2">
               +34 123 456 789 <Phone size={18} />
             </p>
@@ -75,8 +78,8 @@ export default function Contact() {
 
           <div className="flex justify-center md:justify-start gap-4 mt-6">
             <a
-              href="#"
-              className="p-2 rounded-md bg-neutral-800 hover:bg-neutral-700 transition"
+              href="https://www.instagram.com/mrpix3l/?hl=es"
+              className="p-2  bg-neutral-800 hover:bg-neutral-700 transition"
               aria-label="Instagram"
             >
               <Instagram size={18} />
@@ -91,7 +94,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex-1 w-full bg-neutral-900 border border-neutral-700 rounded-md p-8 space-y-6"
+          className="flex-1 w-full bg-neutral-900 border border-neutral-700  p-8 space-y-6"
         >
           <div>
             <label className="block text-sm mb-2 text-neutral-400">Name</label>
@@ -99,7 +102,7 @@ export default function Contact() {
               type="text"
               name="from_name"
               required
-              className="w-full bg-neutral-800 border border-neutral-700 rounded-md px-4 py-3 text-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-500"
+              className="w-full bg-neutral-800 border border-neutral-700  px-4 py-3 text-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-500"
             />
           </div>
 
@@ -109,7 +112,7 @@ export default function Contact() {
               type="email"
               name="reply_to"
               required
-              className="w-full bg-neutral-800 border border-neutral-700 rounded-md px-4 py-3 text-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-500"
+              className="w-full bg-neutral-800 border border-neutral-700  px-4 py-3 text-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-500"
             />
           </div>
 
@@ -121,13 +124,13 @@ export default function Contact() {
               name="message"
               rows="5"
               required
-              className="w-full bg-neutral-800 border border-neutral-700 rounded-md px-4 py-3 text-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-500"
+              className="w-full bg-neutral-800 border border-neutral-700  px-4 py-3 text-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-500"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-neutral-300 text-neutral-800 py-3 rounded-md font-semibold hover:bg-neutral-200 transition"
+            className="w-full bg-neutral-300 text-neutral-800 py-3  font-semibold hover:bg-neutral-200 transition"
           >
             Send
           </button>
