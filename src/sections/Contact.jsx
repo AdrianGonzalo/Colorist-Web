@@ -71,9 +71,6 @@ export default function Contact() {
               </a>
               <Mail size={18} />
             </div>
-            <p className="flex items-center justify-center md:justify-start gap-2">
-              +34 123 456 789 <Phone size={18} />
-            </p>
           </div>
 
           <div className="flex justify-center md:justify-start gap-4 mt-6">
