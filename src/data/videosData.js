@@ -1,11 +1,11 @@
 export const videosData = [
-  {
-    id: 1,
-    title: "Silitia - Bien Fantoche",
-    category: "Musicals",
-    creditos: "",
-    url: "https://www.youtube.com/watch?v=UFv9Sh30QtI",
-  },
+  // {
+  //   id: 1,
+  //   title: "Silitia - Bien Fantoche",
+  //   category: "Musicals",
+  //   creditos: "",
+  //   url: "https://www.youtube.com/watch?v=UFv9Sh30QtI",
+  // },
   {
     id: 2,
     title: "Hipotecas Kutsabank - Casoplón",
@@ -34,7 +34,7 @@ export const videosData = [
     creditos: "",
     url: "https://www.youtube.com/watch?v=lTagROx5yGY",
   },
-  ,
+
   {
     id: 6,
     title: "El Poder del Silencio",

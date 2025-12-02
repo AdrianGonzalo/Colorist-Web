@@ -35,8 +35,10 @@ export default function VideoGrid({ videos }) {
       >
         {videos.map((video, i) => {
           const id = getYouTubeID(video.url);
+
+          // 📌 Miniatura máxima resolución + fallback automático
           const thumb = id
-            ? `https://img.youtube.com/vi/${id}/hqdefault.jpg`
+            ? `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
             : null;
 
           const desc = video.title ? truncate(video.title, 60) : "Sin título";
@@ -49,10 +51,6 @@ export default function VideoGrid({ videos }) {
               className="relative overflow-hidden shadow-lg bg-black aspect-video group cursor-pointer"
               onMouseEnter={() => setHovered(video.id)}
               onMouseLeave={() => setHovered(null)}
-              onDoubleClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-              }}
               onClick={() => setSelectedVideoIndex(i)}
             >
               {/* Título overlay */}
@@ -62,7 +60,7 @@ export default function VideoGrid({ videos }) {
                 </div>
               </div>
 
-              {/* Thumbnail + preview autoplay */}
+              {/* Miniatura HD */}
               {thumb ? (
                 <>
                   <motion.img
@@ -72,8 +70,13 @@ export default function VideoGrid({ videos }) {
                     initial={{ opacity: 1 }}
                     animate={{ opacity: hovered === video.id ? 0 : 1 }}
                     transition={{ duration: 0.3 }}
+                    onError={(e) => {
+                      // fallback automático a 720p
+                      e.target.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+                    }}
                   />
 
+                  {/* Preview autoplay cuando está en hover */}
                   {hovered === video.id && (
                     <motion.div
                       initial={{ opacity: 0 }}
