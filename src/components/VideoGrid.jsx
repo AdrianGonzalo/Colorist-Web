@@ -28,7 +28,7 @@ export default function VideoGrid({ videos }) {
   return (
     <>
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full px-4 md:px-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  w-full px-4 md:px-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
@@ -36,8 +36,9 @@ export default function VideoGrid({ videos }) {
         {videos.map((video, i) => {
           const id = getYouTubeID(video.url);
 
-          // 📌 Miniatura máxima resolución + fallback automático
-          const thumb = id
+          const thumb = video.thumbnail
+            ? video.thumbnail
+            : id
             ? `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
             : null;
 
@@ -46,7 +47,7 @@ export default function VideoGrid({ videos }) {
           return (
             <motion.div
               key={video.id}
-              whileHover={{ scale: 1.03 }}
+              // whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.2 }}
               className="relative overflow-hidden shadow-lg bg-black aspect-video group cursor-pointer"
               onMouseEnter={() => setHovered(video.id)}
@@ -55,8 +56,8 @@ export default function VideoGrid({ videos }) {
             >
               {/* Título overlay */}
               <div className="absolute inset-0 z-20 flex flex-col justify-end pointer-events-none">
-                <div className="w-full text-white text-sm leading-5 px-3 py-1 truncate bg-black">
-                  {desc}
+                <div className="w-full text-white text-sm leading-5 px-3 py-1 truncate ">
+                  {/* {desc} */}
                 </div>
               </div>
 
@@ -71,8 +72,30 @@ export default function VideoGrid({ videos }) {
                     animate={{ opacity: hovered === video.id ? 0 : 1 }}
                     transition={{ duration: 0.3 }}
                     onError={(e) => {
-                      // fallback automático a 720p
-                      e.target.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+                      const fallbackOrder = [
+                        "maxresdefault.jpg",
+                        "hqdefault.jpg",
+                        "mqdefault.jpg",
+                        "default.jpg",
+                      ];
+
+                      const currentFile = fallbackOrder.find((f) =>
+                        e.target.src.includes(f)
+                      );
+                      const currentIndex = fallbackOrder.indexOf(currentFile);
+
+                      if (currentIndex === -1) {
+                        e.target.src = "/fallback-thumbnail.jpg";
+                        return;
+                      }
+
+                      if (currentIndex === fallbackOrder.length - 1) {
+                        e.target.src = "/fallback-thumbnail.jpg";
+                        return;
+                      }
+
+                      const next = fallbackOrder[currentIndex + 1];
+                      e.target.src = `https://img.youtube.com/vi/${id}/${next}`;
                     }}
                   />
 
