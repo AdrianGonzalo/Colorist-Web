@@ -1,18 +1,11 @@
 export const videosData = [
   {
-    id: 1,
-    title: "Silitia - Bien Fantoche",
-    category: "Musicals",
-    creditos: "",
-    url: "https://www.youtube.com/watch?v=UFv9Sh30QtI",
-    thumbnail: "/Miniaturas/Silitia.png",
-  },
-  {
     id: 2,
-    title: "Hipotecas Kutsabank - Casoplón",
+    title: "Kutxabank - Casoplón",
     category: "Commercials",
     creditos: "",
     url: "https://www.youtube.com/watch?v=S8jnTXp6a1A",
+    thumbnail: "/Miniaturas/kutxabank.png",
   },
   {
     id: 3,
@@ -30,7 +23,7 @@ export const videosData = [
   },
   {
     id: 5,
-    title: "Swimming Collection - OYSHO",
+    title: "Oysho - Swimming Collection",
     category: "Commercials",
     creditos: "",
     url: "https://www.youtube.com/watch?v=lTagROx5yGY",
@@ -72,13 +65,14 @@ export const videosData = [
     creditos: "",
     url: "https://www.youtube.com/watch?v=nAGMnlAkV1I",
   },
-  {
-    id: 11,
-    title: "The Water Sports Collection",
-    category: "Commercials",
-    creditos: "",
-    url: "https://www.youtube.com/watch?v=yfG7HyWLCcE",
-  },
+  // {
+  //   id: 11,
+  //   title: "Oysho - The Water Sports Collection",
+  //   category: "Commercials",
+  //   creditos: "",
+  //   url: "https://www.youtube.com/watch?v=yfG7HyWLCcE",
+  //   thumbnail: "/Miniaturas/Silitia.png",
+  // },
   {
     id: 12,
     title: "Vulk - Vulk ez da",
@@ -92,5 +86,13 @@ export const videosData = [
     category: "Musicals",
     creditos: "",
     url: "https://www.youtube.com/watch?v=78KMD5_rfs0",
+  },
+  {
+    id: 1,
+    title: "Silitia - Bien Fantoche",
+    category: "Musicals",
+    creditos: "",
+    url: "https://www.youtube.com/watch?v=UFv9Sh30QtI",
+    thumbnail: "/Miniaturas/Silitia.png",
   },
 ];
