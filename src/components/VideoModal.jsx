@@ -50,7 +50,7 @@ export default function VideoModal({
                   }}
                   className="text-4xl md:text-6xl mb-6 md:mb-10 cursor-pointer hover:text-blue-400 transition"
                 >
-                  MrPixel
+                  MrPix3l
                 </h1>
 
                 <h2 className="text-blue-600 font-semibold text-lg md:text-xl">

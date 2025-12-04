@@ -43,6 +43,7 @@ export const videosData = [
     category: "Musicals",
     creditos: "",
     url: "https://www.youtube.com/watch?v=bdyEUOsRuSE",
+    thumbnail: "/Miniaturas/Odoletan.png",
   },
   {
     id: 8,

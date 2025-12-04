@@ -125,7 +125,7 @@ export default function Navbar() {
             className="w-12 h-auto md:w-16 md:h-auto object-contain"
             priority
           /> */}
-          <h1 className="text-white text-3xl md:text-5xl font-bold">MrPixel</h1>
+          <h1 className="text-white text-3xl md:text-5xl font-bold">MrPix3l</h1>
         </a>
 
         {/* Menú desktop */}
