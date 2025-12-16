@@ -63,17 +63,26 @@ export default function Carrusel() {
 
   return (
     <section className="relative w-screen h-screen overflow-hidden">
+
+      <div className="absolute inset-0 flex flex-col items-center justify-center ">
+        <h1 className="z-40 text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+          Helí Suárez
+        </h1>
+        <h4 className="z-40 text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+          Colorist
+        </h4>
+      </div>
+
       {images.map((src, i) => {
         const currentImageIndex = order[index];
 
         return (
           <div
             key={i}
-            className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${
-              i === currentImageIndex
-                ? "translate-x-0 opacity-100 z-20"
-                : "translate-x-full opacity-0 z-10"
-            }`}
+            className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${i === currentImageIndex
+              ? "translate-x-0 opacity-100 z-20"
+              : "translate-x-full opacity-0 z-10"
+              }`}
             style={{ transitionProperty: "transform, opacity" }}
           >
             <Image

@@ -41,8 +41,8 @@ export default function VideoModal({
           {/* COLUMNA IZQUIERDA */}
           <aside className="w-full md:max-w-sm p-6 md:p-10 flex flex-col order-1">
             <div className="space-y-6">
+              {/* TÍTULO Y CATEGORÍA */}
               <div>
-                {/* MrPixel → cerrar modal + redirigir home */}
                 <h1
                   onClick={() => {
                     onClose();
@@ -71,10 +71,10 @@ export default function VideoModal({
 
               {/* CREDITOS */}
               <div className="text-gray-300">
-                <p>Fotografo: Heli Suarez </p>
-                <p>Fotografo: Heli Suarez </p>
-                <p>Fotografo: Heli Suarez </p>
-                <p>Fotografo: Heli Suarez </p>
+                <p>Fotografo: Heli Suarez</p>
+                <p>Fotografo: Heli Suarez</p>
+                <p>Fotografo: Heli Suarez</p>
+                <p>Fotografo: Heli Suarez</p>
               </div>
 
               {/* GALERÍA */}
@@ -82,33 +82,40 @@ export default function VideoModal({
                 <h3 className="text-white text-xl md:text-2xl font-bold mb-6 md:mb-8">
                   Gallery
                 </h3>
+
                 <div className="grid grid-cols-3 gap-2">
-                  {[1, 2, 3].map((n) => (
-                    <img
-                      key={n}
-                      src={`/Gallery/1/${n}.jpg`}
-                      className="w-full h-20 object-cover cursor-pointer hover:opacity-80 transition"
-                      onClick={() => setSelectedImage(`/Gallery/1/${n}.jpg`)}
-                    />
-                  ))}
+                  {video.gallery && video.gallery.length > 0 ? (
+                    video.gallery.map((img, index) => (
+                      <img
+                        key={index}
+                        src={img}
+                        className="w-full h-20 object-cover cursor-pointer hover:opacity-80 transition"
+                        onClick={() => setSelectedImage(img)}
+                      />
+                    ))
+                  ) : (
+                    <p className="col-span-3 text-gray-400 text-sm">
+                      No gallery available
+                    </p>
+                  )}
                 </div>
               </div>
-            </div>
 
-            {/* FLECHAS */}
-            <div className="flex gap-4 mt-10">
-              <button
-                onClick={handlePrev}
-                className="text-white border border-white/30  w-10 h-10 flex items-center justify-center hover:bg-white/20 transition"
-              >
-                ←
-              </button>
-              <button
-                onClick={handleNext}
-                className="text-white border border-white/30 w-10 h-10 flex items-center justify-center hover:bg-white/20 transition"
-              >
-                →
-              </button>
+              {/* FLECHAS */}
+              <div className="flex gap-4 mt-10">
+                <button
+                  onClick={handlePrev}
+                  className="text-white border border-white/30 w-10 h-10 flex items-center justify-center hover:bg-white/20 transition"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="text-white border border-white/30 w-10 h-10 flex items-center justify-center hover:bg-white/20 transition"
+                >
+                  →
+                </button>
+              </div>
             </div>
           </aside>
 
