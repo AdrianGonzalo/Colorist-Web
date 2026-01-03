@@ -95,15 +95,6 @@ export default function Carrusel() {
           </div>
         );
       })}
-
-      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-        <h1 className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-          Helí Suárez
-        </h1>
-        <h4 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-          Colorist
-        </h4>
-      </div>
     </section>
   );
 }

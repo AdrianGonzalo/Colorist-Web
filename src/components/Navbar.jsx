@@ -109,11 +109,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        mobileMenuOpen || scrolled
-          ? "bg-black text-white"
-          : "bg-transparent text-black"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${mobileMenuOpen || scrolled
+        ? "bg-black text-white"
+        : "bg-transparent text-black"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <a href="/">
@@ -125,7 +124,7 @@ export default function Navbar() {
             className="w-12 h-auto md:w-16 md:h-auto object-contain"
             priority
           /> */}
-          <h1 className="text-white text-3xl md:text-5xl font-bold">MrPix3l</h1>
+          <h2 className="text-white text-3xl md:text-5xl font-bold">MrPix3l</h2>
         </a>
 
         {/* Menú desktop */}

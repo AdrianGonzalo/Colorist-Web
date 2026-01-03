@@ -3,7 +3,10 @@ export const videosData = [
     id: 2,
     title: "Kutxabank - Casoplón",
     category: "Commercials",
-    creditos: "",
+    creditos: {
+      director: "",
+      fotografo: "",
+    },
     url: "https://www.youtube.com/watch?v=S8jnTXp6a1A",
     thumbnail: "/Miniaturas/kutxabank.png",
     gallery: [
@@ -16,7 +19,10 @@ export const videosData = [
     id: 3,
     title: "Marte Lasarte - Basamortua",
     category: "Musicals",
-    creditos: "",
+    creditos: {
+      director: "",
+      fotografo: "",
+    },
     url: "https://www.youtube.com/watch?v=ZsMw8stb6wA",
     gallery: [
       "/Gallery/Basamortua/zorro1.jpg",
@@ -28,7 +34,10 @@ export const videosData = [
     id: 4,
     title: "Voll-Damm - Euskadi es Doble o Nada",
     category: "Commercials",
-    creditos: "",
+    creditos: {
+      director: "",
+      fotografo: "",
+    },
     url: "https://www.youtube.com/watch?v=ft7Xlzn7fL8",
     gallery: [
       "/Gallery/Voll-Damm/zorro1.jpg",
@@ -40,7 +49,10 @@ export const videosData = [
     id: 5,
     title: "Oysho - Swimming Collection",
     category: "Commercials",
-    creditos: "",
+    creditos: {
+      director: "",
+      fotografo: "",
+    },
     url: "https://www.youtube.com/watch?v=lTagROx5yGY",
     gallery: [
       "/Gallery/Swimming/zorro1.jpg",
@@ -53,7 +65,10 @@ export const videosData = [
     id: 6,
     title: "El Poder del Silencio",
     category: "Movies",
-    creditos: "",
+    creditos: {
+      director: "",
+      fotografo: "",
+    },
     url: "https://www.youtube.com/watch?v=dYbPWBudUV4",
     gallery: [
       "/Gallery/Poder/zorro1.jpg",
@@ -66,7 +81,10 @@ export const videosData = [
     id: 7,
     title: "Huntza - Odoletan",
     category: "Musicals",
-    creditos: "",
+    creditos: {
+      director: "",
+      fotografo: "",
+    },
     url: "https://www.youtube.com/watch?v=bdyEUOsRuSE",
     thumbnail: "/Miniaturas/Odoletan.png",
     gallery: [
@@ -79,7 +97,10 @@ export const videosData = [
     id: 8,
     title: "Sintrópica",
     category: "Movies",
-    creditos: "",
+    creditos: {
+      director: "",
+      fotografo: "",
+    },
     url: "https://www.youtube.com/watch?v=QNjN8issMNA",
     gallery: [
       "/Gallery/Sintropica/zorro1.jpg",
@@ -91,7 +112,10 @@ export const videosData = [
     id: 9,
     title: "Dekot - Reunión de náufragos",
     category: "Musicals",
-    creditos: "",
+    creditos: {
+      director: "",
+      fotografo: "",
+    },
     url: "https://www.youtube.com/watch?v=gGEkzMZEwdQ",
     gallery: [
       "/Gallery/Reunion/zorro1.jpg",
@@ -103,7 +127,10 @@ export const videosData = [
     id: 10,
     title: "Merina Gris - ALMAR ft. Delaporte",
     category: "Musicals",
-    creditos: "",
+    creditos: {
+      director: "",
+      fotografo: "",
+    },
     url: "https://www.youtube.com/watch?v=nAGMnlAkV1I",
     gallery: [
       "/Gallery/Almar/zorro1.jpg",
@@ -115,7 +142,10 @@ export const videosData = [
   //   id: 11,
   //   title: "Oysho - The Water Sports Collection",
   //   category: "Commercials",
-  //   creditos: "",
+  //   creditos: {
+  //   director: "",
+  //   fotografo: "",
+  // },
   //   url: "https://www.youtube.com/watch?v=yfG7HyWLCcE",
   //   thumbnail: "/Miniaturas/Silitia.png",
   // },
@@ -123,7 +153,10 @@ export const videosData = [
     id: 12,
     title: "Vulk - Vulk ez da",
     category: "Musicals",
-    creditos: "",
+    creditos: {
+      director: "",
+      fotografo: "",
+    },
     url: "https://www.youtube.com/watch?v=rkWQgE96m7c",
     gallery: [
       "/Gallery/Vulk/zorro1.jpg",
@@ -135,7 +168,10 @@ export const videosData = [
     id: 13,
     title: "Hey! Bastian - Enséñame a bailar",
     category: "Musicals",
-    creditos: "",
+    creditos: {
+      director: "",
+      fotografo: "",
+    },
     url: "https://www.youtube.com/watch?v=78KMD5_rfs0",
     gallery: [
       "/Gallery/Enseñame/zorro1.jpg",
@@ -147,7 +183,10 @@ export const videosData = [
     id: 1,
     title: "Silitia - Bien Fantoche",
     category: "Musicals",
-    creditos: "",
+    creditos: {
+      director: "",
+      fotografo: "",
+    },
     url: "https://www.youtube.com/watch?v=UFv9Sh30QtI",
     thumbnail: "/Miniaturas/Silitia.png",
     gallery: [

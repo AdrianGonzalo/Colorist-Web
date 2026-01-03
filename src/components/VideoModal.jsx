@@ -414,7 +414,7 @@ export default function VideoModal({
             <div className="space-y-6">
               {/* TÍTULO Y CATEGORÍA */}
               <div>
-                <h1
+                <h2
                   onClick={() => {
                     onClose();
                     router.push("/");
@@ -422,15 +422,15 @@ export default function VideoModal({
                   className="text-4xl md:text-6xl mb-6 md:mb-10 cursor-pointer hover:text-blue-400 transition"
                 >
                   MrPix3l
-                </h1>
+                </h2>
 
                 <h2 className="text-blue-600 font-semibold text-lg md:text-xl">
                   {video.category || "CATEGORY"}
                 </h2>
 
-                <h1 className="text-white text-xl md:text-2xl font-bold">
+                <h3 className="text-white text-xl md:text-2xl font-bold">
                   {video.title}
-                </h1>
+                </h3>
               </div>
 
               {/* DESCRIPCIÓN */}
@@ -441,12 +441,22 @@ export default function VideoModal({
               </div>
 
               {/* CREDITOS */}
-              <div className="text-gray-300">
-                <p>Fotografo: Heli Suarez</p>
-                <p>Fotografo: Heli Suarez</p>
-                <p>Fotografo: Heli Suarez</p>
-                <p>Fotografo: Heli Suarez</p>
-              </div>
+              {video.creditos && (
+                <div className="text-gray-300 space-y-1">
+                  {video.creditos.director && (
+                    <p>
+                      <span className="font-semibold">Director:</span> {video.creditos.director}
+                    </p>
+                  )}
+
+                  {video.creditos.fotografo && (
+                    <p>
+                      <span className="font-semibold">Fotógrafo:</span> {video.creditos.fotografo}
+                    </p>
+                  )}
+                </div>
+              )}
+
 
               {/* GALERÍA SOLO EN DESKTOP */}
               <div className="hidden md:block">
@@ -474,8 +484,8 @@ export default function VideoModal({
           {/* BOTÓN CERRAR */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 text-white text-xl bg-white/10 
-                       hover:bg-white/20 p-2 w-10 h-10 transition z-[7000]"
+            className="absolute top-6 right-6 text-white text-xl bg-white/30 
+                       hover:bg-white/0 p-2 w-10 h-10 transition z-[7000]"
           >
             ✕
           </button>
