@@ -28,6 +28,7 @@ const images = [
   "/Carrusel/Imagen22.jpg",
   "/Carrusel/Imagen23.jpg",
   "/Carrusel/Imagen24.jpg",
+  "/Carrusel/Imagen25.jpg",
 ];
 
 function shuffleArray(array) {

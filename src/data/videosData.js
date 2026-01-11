@@ -27,9 +27,9 @@ export const videosData = [
     },
     url: "https://www.youtube.com/watch?v=ZsMw8stb6wA",
     gallery: [
-      "/Gallery/Basamortua/zorro1.jpg",
-      "/Gallery/Basamortua/zorro2.jpg",
-      "/Gallery/Basamortua/zorro3.jpg",
+      "/Gallery/Basamortua/ML2.jpg",
+      "/Gallery/Basamortua/ML3.jpg",
+      "/Gallery/Basamortua/ML1.jpg",
     ]
   },
   {
@@ -43,9 +43,9 @@ export const videosData = [
     },
     url: "https://www.youtube.com/watch?v=ft7Xlzn7fL8",
     gallery: [
-      "/Gallery/Voll-Damm/zorro1.jpg",
-      "/Gallery/Voll-Damm/zorro2.jpg",
-      "/Gallery/Voll-Damm/zorro3.jpg",
+      "/Gallery/Voll-Damm/Voll1.jpg",
+      "/Gallery/Voll-Damm/Voll2.jpg",
+      "/Gallery/Voll-Damm/Voll3.jpg",
     ]
   },
   {
@@ -59,9 +59,9 @@ export const videosData = [
     },
     url: "https://www.youtube.com/watch?v=lTagROx5yGY",
     gallery: [
-      "/Gallery/Swimming/zorro1.jpg",
-      "/Gallery/Swimming/zorro2.jpg",
-      "/Gallery/Swimming/zorro3.jpg",
+      "/Gallery/Swimming/Sw1.jpg",
+      "/Gallery/Swimming/Sw2.jpg",
+      "/Gallery/Swimming/Sw3.jpg",
     ]
   },
 
@@ -76,9 +76,9 @@ export const videosData = [
     },
     url: "https://www.youtube.com/watch?v=dYbPWBudUV4",
     gallery: [
-      "/Gallery/Poder/zorro1.jpg",
-      "/Gallery/Poder/zorro2.jpg",
-      "/Gallery/Poder/zorro3.jpg",
+      "/Gallery/Poder/EPDS1.jpg",
+      "/Gallery/Poder/EPDS2.jpg",
+      "/Gallery/Poder/EPDS3.jpg",
     ]
   },
 
@@ -220,9 +220,9 @@ export const videosData = [
     url: "https://www.youtube.com/watch?v=iUlpw4FT7E8",
 
     gallery: [
-      "/Gallery/Bien/zorro1.jpg",
-      "/Gallery/Bien/zorro2.jpg",
-      "/Gallery/Bien/zorro3.jpg",
+      "/Gallery/Metropolitan/Metro1.jpg",
+      "/Gallery/Metropolitan/Metro2.jpg",
+      "/Gallery/Metropolitan/Metro3.jpg",
     ]
   }
   ,
@@ -237,9 +237,9 @@ export const videosData = [
     },
     url: "https://www.youtube.com/watch?v=Z8cYoDjkpKw",
     gallery: [
-      "/Gallery/Bien/zorro1.jpg",
-      "/Gallery/Bien/zorro2.jpg",
-      "/Gallery/Bien/zorro3.jpg",
+      "/Gallery/Pensiones/Pensiones1.jpg",
+      "/Gallery/Pensiones/Pensiones2.jpg",
+      "/Gallery/Pensiones/Pensiones3.jpg",
     ]
   }
   ,
@@ -259,5 +259,22 @@ export const videosData = [
       "/Gallery/Bien/zorro3.jpg",
     ]
   }
+  // ,
+  // {
+  //   id: 17,
+  //   title: "Lacoste - Fashion Week Milan",
+  //   category: "Comercials",
+  //   creditos: {
+  //     descripcion: "",
+  //     director: "",
+  //     photographer: "",
+  //   },
+  //   url: "https://www.youtube.com/shorts/wGfeez_CxR0",
+  //   gallery: [
+  //     "/Gallery/Bien/zorro1.jpg",
+  //     "/Gallery/Bien/zorro2.jpg",
+  //     "/Gallery/Bien/zorro3.jpg",
+  //   ]
+  // }
 
 ];
