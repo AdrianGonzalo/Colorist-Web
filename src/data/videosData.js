@@ -4,15 +4,16 @@ export const videosData = [
     title: "Kutxabank - Casoplón",
     category: "Commercials",
     creditos: {
-      director: "",
-      fotografo: "",
+      descripcion: "hola",
+      director: "hola",
+      photographer: "hola",
     },
     url: "https://www.youtube.com/watch?v=S8jnTXp6a1A",
     thumbnail: "/Miniaturas/kutxabank.png",
     gallery: [
-      "/Gallery/Casoplón/oso1.jpg",
-      "/Gallery/Casoplón/oso2.jpg",
-      "/Gallery/Casoplón/oso3.jpg",
+      "/Gallery/Casoplón/Casoplon1.jpg",
+      "/Gallery/Casoplón/Casoplon2.jpg",
+      "/Gallery/Casoplón/Casoplon3.jpg",
     ]
   },
   {
@@ -20,8 +21,9 @@ export const videosData = [
     title: "Marte Lasarte - Basamortua",
     category: "Musicals",
     creditos: {
+      descripcion: "",
       director: "",
-      fotografo: "",
+      photographer: "",
     },
     url: "https://www.youtube.com/watch?v=ZsMw8stb6wA",
     gallery: [
@@ -35,8 +37,9 @@ export const videosData = [
     title: "Voll-Damm - Euskadi es Doble o Nada",
     category: "Commercials",
     creditos: {
+      descripcion: "",
       director: "",
-      fotografo: "",
+      photographer: "",
     },
     url: "https://www.youtube.com/watch?v=ft7Xlzn7fL8",
     gallery: [
@@ -50,8 +53,9 @@ export const videosData = [
     title: "Oysho - Swimming Collection",
     category: "Commercials",
     creditos: {
+      descripcion: "",
       director: "",
-      fotografo: "",
+      photographer: "",
     },
     url: "https://www.youtube.com/watch?v=lTagROx5yGY",
     gallery: [
@@ -66,8 +70,9 @@ export const videosData = [
     title: "El Poder del Silencio",
     category: "Movies",
     creditos: {
+      descripcion: "",
       director: "",
-      fotografo: "",
+      photographer: "",
     },
     url: "https://www.youtube.com/watch?v=dYbPWBudUV4",
     gallery: [
@@ -82,8 +87,9 @@ export const videosData = [
     title: "Huntza - Odoletan",
     category: "Musicals",
     creditos: {
+      descripcion: "",
       director: "",
-      fotografo: "",
+      photographer: "",
     },
     url: "https://www.youtube.com/watch?v=bdyEUOsRuSE",
     thumbnail: "/Miniaturas/Odoletan.png",
@@ -98,8 +104,9 @@ export const videosData = [
     title: "Sintrópica",
     category: "Movies",
     creditos: {
+      descripcion: "",
       director: "",
-      fotografo: "",
+      photographer: "",
     },
     url: "https://www.youtube.com/watch?v=QNjN8issMNA",
     gallery: [
@@ -113,8 +120,9 @@ export const videosData = [
     title: "Dekot - Reunión de náufragos",
     category: "Musicals",
     creditos: {
+      descripcion: "",
       director: "",
-      fotografo: "",
+      photographer: "",
     },
     url: "https://www.youtube.com/watch?v=gGEkzMZEwdQ",
     gallery: [
@@ -128,8 +136,9 @@ export const videosData = [
     title: "Merina Gris - ALMAR ft. Delaporte",
     category: "Musicals",
     creditos: {
+      descripcion: "",
       director: "",
-      fotografo: "",
+      photographer: "",
     },
     url: "https://www.youtube.com/watch?v=nAGMnlAkV1I",
     gallery: [
@@ -144,7 +153,7 @@ export const videosData = [
   //   category: "Commercials",
   //   creditos: {
   //   director: "",
-  //   fotografo: "",
+  //   photographer: "",
   // },
   //   url: "https://www.youtube.com/watch?v=yfG7HyWLCcE",
   //   thumbnail: "/Miniaturas/Silitia.png",
@@ -154,8 +163,9 @@ export const videosData = [
     title: "Vulk - Vulk ez da",
     category: "Musicals",
     creditos: {
+      descripcion: "",
       director: "",
-      fotografo: "",
+      photographer: "",
     },
     url: "https://www.youtube.com/watch?v=rkWQgE96m7c",
     gallery: [
@@ -169,8 +179,9 @@ export const videosData = [
     title: "Hey! Bastian - Enséñame a bailar",
     category: "Musicals",
     creditos: {
+      descripcion: "",
       director: "",
-      fotografo: "",
+      photographer: "",
     },
     url: "https://www.youtube.com/watch?v=78KMD5_rfs0",
     gallery: [
@@ -184,8 +195,9 @@ export const videosData = [
     title: "Silitia - Bien Fantoche",
     category: "Musicals",
     creditos: {
+      descripcion: "",
       director: "",
-      fotografo: "",
+      photographer: "",
     },
     url: "https://www.youtube.com/watch?v=UFv9Sh30QtI",
     thumbnail: "/Miniaturas/Silitia.png",
@@ -195,4 +207,57 @@ export const videosData = [
       "/Gallery/Bien/zorro3.jpg",
     ]
   },
+  ,
+  {
+    id: 14,
+    title: "Metropolitan - Spot",
+    category: "Comercials",
+    creditos: {
+      descripcion: "",
+      director: "",
+      photographer: "",
+    },
+    url: "https://www.youtube.com/watch?v=iUlpw4FT7E8",
+
+    gallery: [
+      "/Gallery/Bien/zorro1.jpg",
+      "/Gallery/Bien/zorro2.jpg",
+      "/Gallery/Bien/zorro3.jpg",
+    ]
+  }
+  ,
+  {
+    id: 15,
+    title: "Kutxabank - Pensiones",
+    category: "Comercials",
+    creditos: {
+      descripcion: "",
+      director: "",
+      photographer: "",
+    },
+    url: "https://www.youtube.com/watch?v=Z8cYoDjkpKw",
+    gallery: [
+      "/Gallery/Bien/zorro1.jpg",
+      "/Gallery/Bien/zorro2.jpg",
+      "/Gallery/Bien/zorro3.jpg",
+    ]
+  }
+  ,
+  {
+    id: 16,
+    title: "Hugo Boss - Fashion Week Milan",
+    category: "Comercials",
+    creditos: {
+      descripcion: "",
+      director: "",
+      photographer: "",
+    },
+    url: "https://www.youtube.com/shorts/wGfeez_CxR0",
+    gallery: [
+      "/Gallery/Bien/zorro1.jpg",
+      "/Gallery/Bien/zorro2.jpg",
+      "/Gallery/Bien/zorro3.jpg",
+    ]
+  }
+
 ];

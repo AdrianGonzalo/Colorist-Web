@@ -15,7 +15,7 @@ export default function Works() {
       : videosData.filter((v) => v.category === selectedCategory);
 
   return (
-    <div className=" text-white min-h-screen py-10 px-1">
+    <div className=" text-white min-h-screen py-30 px-1">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}

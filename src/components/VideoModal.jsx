@@ -171,7 +171,7 @@
 
 
 // GALRIA DEBAJO DEL VIDEO
-// 
+
 // "use client";
 // import { useState } from "react";
 // import { motion } from "framer-motion";
@@ -433,25 +433,24 @@ export default function VideoModal({
                 </h3>
               </div>
 
-              {/* DESCRIPCIÓN */}
-              <div className="text-gray-300 text-sm md:text-base space-y-2">
-                {video.description?.split("\n").map((l, i) => (
-                  <p key={i}>{l}</p>
-                ))}
-              </div>
-
               {/* CREDITOS */}
               {video.creditos && (
                 <div className="text-gray-300 space-y-1">
+                  {video.creditos.descripcion && (
+                    <p>
+                      <span className="font-semibold">Descripcion:</span> {video.creditos.descripcion}
+                    </p>
+                  )}
+
                   {video.creditos.director && (
                     <p>
                       <span className="font-semibold">Director:</span> {video.creditos.director}
                     </p>
                   )}
 
-                  {video.creditos.fotografo && (
+                  {video.creditos.photographer && (
                     <p>
-                      <span className="font-semibold">Fotógrafo:</span> {video.creditos.fotografo}
+                      <span className="font-semibold">Photographer:</span> {video.creditos.photographer}
                     </p>
                   )}
                 </div>
@@ -484,7 +483,7 @@ export default function VideoModal({
           {/* BOTÓN CERRAR */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 text-white text-xl bg-white/30 
+            className="absolute top-6 right-6 text-white text-xl bg-white/30
                        hover:bg-white/0 p-2 w-10 h-10 transition z-[7000]"
           >
             ✕
