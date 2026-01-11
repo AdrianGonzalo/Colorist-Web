@@ -4,7 +4,7 @@ const clients = [
     { name: "Voll-Damm", logo: "/Clients/Voll-Damm.svg", width: 300, height: 60, },
     { name: "Kutxabank", logo: "/Clients/Kutxabank.svg", width: 150, height: 60, },
     { name: "Oysho", logo: "/Clients/Oysho.svg", width: 160, height: 60, },
-    { name: "Metropolitan", logo: "/Clients/HBO.svg", width: 140, height: 60, },
+    { name: "Metropolitan", logo: "/Clients/metropolitan.png", width: 140, height: 60, },
 ];
 
 export default function Clients() {

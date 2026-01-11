@@ -4,9 +4,9 @@ export const videosData = [
     title: "Kutxabank - Casoplón",
     category: "Commercials",
     creditos: {
-      descripcion: "hola",
-      director: "hola",
-      photographer: "hola",
+      descripcion: "",
+      director: "",
+      photographer: "",
     },
     url: "https://www.youtube.com/watch?v=S8jnTXp6a1A",
     thumbnail: "/Miniaturas/kutxabank.png",
@@ -94,9 +94,9 @@ export const videosData = [
     url: "https://www.youtube.com/watch?v=bdyEUOsRuSE",
     thumbnail: "/Miniaturas/Odoletan.png",
     gallery: [
-      "/Gallery/Odoletan/zorro1.jpg",
-      "/Gallery/Odoletan/zorro2.jpg",
-      "/Gallery/Odoletan/zorro3.jpg",
+      "/Gallery/Odoletan/Odo2.jpg",
+      "/Gallery/Odoletan/Odo1.jpg",
+      "/Gallery/Odoletan/Odo3.jpg",
     ]
   },
   {
@@ -110,9 +110,9 @@ export const videosData = [
     },
     url: "https://www.youtube.com/watch?v=QNjN8issMNA",
     gallery: [
-      "/Gallery/Sintropica/zorro1.jpg",
-      "/Gallery/Sintropica/zorro2.jpg",
-      "/Gallery/Sintropica/zorro3.jpg",
+      "/Gallery/Sintropica/Sin2.jpg",
+      "/Gallery/Sintropica/Sin1.jpg",
+      "/Gallery/Sintropica/Sin3.jpg",
     ]
   },
   {
@@ -126,9 +126,9 @@ export const videosData = [
     },
     url: "https://www.youtube.com/watch?v=gGEkzMZEwdQ",
     gallery: [
-      "/Gallery/Reunion/zorro1.jpg",
-      "/Gallery/Reunion/zorro2.jpg",
-      "/Gallery/Reunion/zorro3.jpg",
+      "/Gallery/Reunion/Dekot1.jpg",
+      "/Gallery/Reunion/Dekot2.jpg",
+      "/Gallery/Reunion/Dekot3.jpg",
     ]
   },
   {
@@ -218,7 +218,7 @@ export const videosData = [
       photographer: "",
     },
     url: "https://www.youtube.com/watch?v=iUlpw4FT7E8",
-
+    thumbnail: "/Miniaturas/Metropolitan.jpg",
     gallery: [
       "/Gallery/Metropolitan/Metro1.jpg",
       "/Gallery/Metropolitan/Metro2.jpg",
