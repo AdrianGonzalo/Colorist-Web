@@ -39,8 +39,8 @@ export default function VideoGrid({ videos }) {
           const thumb = video.thumbnail
             ? video.thumbnail
             : id
-            ? `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
-            : null;
+              ? `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
+              : null;
 
           const desc = video.title ? truncate(video.title, 60) : "Sin título";
 
@@ -52,7 +52,11 @@ export default function VideoGrid({ videos }) {
               className="relative overflow-hidden shadow-lg bg-black aspect-video group cursor-pointer"
               onMouseEnter={() => setHovered(video.id)}
               onMouseLeave={() => setHovered(null)}
-              onClick={() => setSelectedVideoIndex(i)}
+              onClick={() => {
+                setSelectedVideoIndex(i);
+                window.history.pushState({ modal: true }, '', window.location.href);
+              }}
+
             >
               {/* Título overlay */}
               <div className="absolute inset-0 z-20 flex flex-col justify-end pointer-events-none">

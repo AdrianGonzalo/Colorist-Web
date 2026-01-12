@@ -147,17 +147,6 @@ export const videosData = [
       "/Gallery/Almar/zorro3.jpg",
     ]
   },
-  // {
-  //   id: 11,
-  //   title: "Oysho - The Water Sports Collection",
-  //   category: "Commercials",
-  //   creditos: {
-  //   director: "",
-  //   photographer: "",
-  // },
-  //   url: "https://www.youtube.com/watch?v=yfG7HyWLCcE",
-  //   thumbnail: "/Miniaturas/Silitia.png",
-  // },
   {
     id: 12,
     title: "Vulk - Vulk ez da",
@@ -259,22 +248,4 @@ export const videosData = [
       "/Gallery/Bien/zorro3.jpg",
     ]
   }
-  // ,
-  // {
-  //   id: 17,
-  //   title: "Lacoste - Fashion Week Milan",
-  //   category: "Comercials",
-  //   creditos: {
-  //     descripcion: "",
-  //     director: "",
-  //     photographer: "",
-  //   },
-  //   url: "https://www.youtube.com/shorts/wGfeez_CxR0",
-  //   gallery: [
-  //     "/Gallery/Bien/zorro1.jpg",
-  //     "/Gallery/Bien/zorro2.jpg",
-  //     "/Gallery/Bien/zorro3.jpg",
-  //   ]
-  // }
-
 ];

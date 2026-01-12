@@ -350,6 +350,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function VideoModal({
   videos,
@@ -396,6 +397,26 @@ export default function VideoModal({
     </div>
   );
 
+  useEffect(() => {
+    const handlePopState = (event) => {
+      onClose(); // cierra el modal si se pulsa atrás
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, [onClose]);
+
+  const handleClose = () => {
+    onClose();
+    // retrocedemos en el historial solo si pusimos un estado antes
+    if (window.history.state && window.history.state.modal) {
+      window.history.back();
+    }
+  };
+
   return (
     <>
       {/* MODAL VIDEO PRINCIPAL */}
@@ -403,7 +424,7 @@ export default function VideoModal({
         className="fixed inset-0 bg-black z-[5000] flex"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        onClick={onClose}
+        onClick={handleClose}
       >
         <div
           className="relative w-full h-full flex flex-col md:flex-row overflow-y-auto"
@@ -416,7 +437,7 @@ export default function VideoModal({
               <div>
                 <h2
                   onClick={() => {
-                    onClose();
+                    handleClose();
                     router.push("/");
                   }}
                   className="text-4xl md:text-6xl mb-6 md:mb-10 cursor-pointer hover:text-blue-400 transition"
@@ -482,7 +503,7 @@ export default function VideoModal({
 
           {/* BOTÓN CERRAR */}
           <button
-            onClick={onClose}
+            onClick={handleClose}
             className="absolute top-6 right-6 text-white text-xl bg-white/30
                        hover:bg-white/0 p-2 w-10 h-10 transition z-[7000]"
           >
