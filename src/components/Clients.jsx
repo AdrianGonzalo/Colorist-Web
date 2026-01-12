@@ -1,16 +1,19 @@
 import Image from "next/image";
 
 const clients = [
-    { name: "Voll-Damm", logo: "/Clients/Voll-Damm.svg", width: 300, height: 60, },
-    { name: "Kutxabank", logo: "/Clients/Kutxabank.svg", width: 150, height: 60, },
-    { name: "Oysho", logo: "/Clients/Oysho.svg", width: 160, height: 60, },
-    { name: "Metropolitan", logo: "/Clients/metropolitan.png", width: 140, height: 60, },
+    { name: "Voll-Damm", logo: "/Clients/Voll-Damm.svg" },
+    { name: "Kutxabank", logo: "/Clients/Kutxabank.svg" },
+    { name: "Oysho", logo: "/Clients/Oysho.svg" },
+    // { name: "Metropolitan", logo: "/Clients/metropolitan.png" },
+    { name: "Nike", logo: "/Clients/Nike.svg" },
+    { name: "Hugo Boss", logo: "/Clients/Hugo.svg" },
+    { name: "Foot Locker", logo: "/Clients/Foot.svg" },
 ];
 
 export default function Clients() {
     return (
         <section className="w-full pb-28 border-y dark:border-neutral-500/40 bg-black/20">
-            <div className=" pt-16">
+            <div className="pt-16">
                 <p className="text-lg uppercase tracking-[0.35em] text-center text-neutral-200 mb-14">
                     Selected clients & collaborations
                 </p>
@@ -24,15 +27,14 @@ export default function Clients() {
                             <Image
                                 src={client.logo}
                                 alt={client.name}
-                                width={client.width}
-                                height={client.height}
-                                className="object-contain"
+                                width={150} // tamaño base para desktop
+                                height={60}
+                                className="object-contain
+                                           max-w-[50px] sm:max-w-[75px] md:max-w-[100px] lg:max-w-[150px]"
                             />
                         </div>
                     ))}
                 </div>
-
-
             </div>
         </section>
     );
