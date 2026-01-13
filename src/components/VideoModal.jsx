@@ -540,13 +540,17 @@ export default function VideoModal({
               className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/40 hover:bg-white/40 text-white text-2xl rounded-md shadow-lg transition z-[7000]"
               onClick={(e) => {
                 e.stopPropagation();
-                setSelectedImageIndex((prev) =>
-                  prev > 0 ? prev - 1 : video.gallery.length - 1
-                );
+                if (selectedImageIndex > 0) {
+                  setSelectedImageIndex(selectedImageIndex - 1);
+                } else {
+                  // ir al video anterior
+                  const prevVideoIndex = currentIndex > 0 ? currentIndex - 1 : videos.length - 1;
+                  setCurrentIndex(prevVideoIndex);
+                  setSelectedImageIndex(videos[prevVideoIndex].gallery.length - 1);
+                }
               }}
             >
               ←
-
             </button>
 
             {/* IMAGEN */}
@@ -563,13 +567,19 @@ export default function VideoModal({
               className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/40 hover:bg-white/40 text-white text-2xl rounded-md shadow-lg transition z-[7000]"
               onClick={(e) => {
                 e.stopPropagation();
-                setSelectedImageIndex((prev) =>
-                  prev < video.gallery.length - 1 ? prev + 1 : 0
-                );
+                if (selectedImageIndex < video.gallery.length - 1) {
+                  setSelectedImageIndex(selectedImageIndex + 1);
+                } else {
+                  // ir al siguiente video
+                  const nextVideoIndex = currentIndex < videos.length - 1 ? currentIndex + 1 : 0;
+                  setCurrentIndex(nextVideoIndex);
+                  setSelectedImageIndex(0);
+                }
               }}
             >
               →
             </button>
+
           </motion.div>,
           document.body
         )}
