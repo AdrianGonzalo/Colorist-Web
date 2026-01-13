@@ -365,8 +365,9 @@ export default function VideoModal({
   if (!video) return null;
 
   const id = video.url?.match(
-    /(?:v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11})/
+    /(?:v=|youtu\.be\/|embed\/|shorts\/)([a-zA-Z0-9_-]{11})/
   )?.[1];
+
 
   const handlePrev = () =>
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : videos.length - 1));
