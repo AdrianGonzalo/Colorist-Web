@@ -1,13 +1,14 @@
 import Image from "next/image";
 
 const clients = [
-    { name: "Voll-Damm", logo: "/Clients/Voll-Damm.svg" },
+    { name: "Voll-Damm", logo: "/Clients/Voll-Damm.svg", large: true },
     { name: "Kutxabank", logo: "/Clients/Kutxabank.svg" },
     { name: "Oysho", logo: "/Clients/Oysho.svg" },
-    // { name: "Metropolitan", logo: "/Clients/metropolitan.png" },
+    { name: "Metropolitan", logo: "/Clients/ClubM.svg", large: true },
     { name: "Nike", logo: "/Clients/Nike.svg" },
     { name: "Hugo Boss", logo: "/Clients/Hugo.svg" },
     { name: "Foot Locker", logo: "/Clients/Foot.svg" },
+    { name: "Pull&Beart", logo: "/Clients/Pull&Bear.svg" },
 ];
 
 export default function Clients() {
@@ -18,22 +19,32 @@ export default function Clients() {
                     Selected clients & collaborations
                 </p>
 
-                <div className="flex flex-wrap justify-evenly items-center gap-y-12 mt-25 w-full">
-                    {clients.map((client) => (
-                        <div
-                            key={client.name}
-                            className="opacity-100 hover:opacity-60 transition duration-300 flex justify-center items-center"
-                        >
-                            <Image
-                                src={client.logo}
-                                alt={client.name}
-                                width={150} // tamaño base para desktop
-                                height={60}
-                                className="object-contain
-                                           max-w-[50px] sm:max-w-[75px] md:max-w-[100px] lg:max-w-[150px]"
-                            />
-                        </div>
-                    ))}
+                <div className="grid grid-cols-2 [@media(min-width:900px)]:grid-cols-4 lg:grid-cols-8 place-items-center gap-y-12 w-full">
+                    {clients.map((client) => {
+                        const isLarge = client.large;
+
+                        return (
+                            <div
+                                key={client.name}
+                                className="flex justify-center items-center"
+                            >
+                                <Image
+                                    src={client.logo}
+                                    alt={client.name}
+                                    width={isLarge ? 200 : 120}
+                                    height={60}
+                                    className={`
+                    object-contain
+                    max-w-[50px] sm:max-w-[75px] md:max-w-[100px] lg:max-w-[150px]
+                    ${isLarge
+                                            ? "max-w-[80px] sm:max-w-[120px] md:max-w-[160px] lg:max-w-[220px]"
+                                            : ""
+                                        }
+                  `}
+                                />
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
