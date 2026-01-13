@@ -142,9 +142,9 @@ export const videosData = [
     },
     url: "https://www.youtube.com/watch?v=nAGMnlAkV1I",
     gallery: [
-      "/Gallery/Almar/zorro1.jpg",
-      "/Gallery/Almar/zorro2.jpg",
-      "/Gallery/Almar/zorro3.jpg",
+      "/Gallery/Almar/Almar1.jpg",
+      "/Gallery/Almar/Almar2.jpg",
+      "/Gallery/Almar/Almar3.jpg",
     ]
   },
   {
@@ -158,9 +158,9 @@ export const videosData = [
     },
     url: "https://www.youtube.com/watch?v=rkWQgE96m7c",
     gallery: [
-      "/Gallery/Vulk/zorro1.jpg",
-      "/Gallery/Vulk/zorro2.jpg",
-      "/Gallery/Vulk/zorro3.jpg",
+      "/Gallery/Vulk/Vulk1.jpg",
+      "/Gallery/Vulk/Vulk2.jpg",
+      "/Gallery/Vulk/Vulk3.jpg",
     ]
   },
   {
@@ -174,9 +174,9 @@ export const videosData = [
     },
     url: "https://www.youtube.com/watch?v=78KMD5_rfs0",
     gallery: [
-      "/Gallery/Enseñame/zorro1.jpg",
-      "/Gallery/Enseñame/zorro2.jpg",
-      "/Gallery/Enseñame/zorro3.jpg",
+      "/Gallery/Enseñame/Ense1.jpg",
+      "/Gallery/Enseñame/Ense2.jpg",
+      "/Gallery/Enseñame/Ense3.jpg",
     ]
   },
   {
@@ -191,9 +191,9 @@ export const videosData = [
     url: "https://www.youtube.com/watch?v=UFv9Sh30QtI",
     thumbnail: "/Miniaturas/Silitia.png",
     gallery: [
-      "/Gallery/Bien/zorro1.jpg",
-      "/Gallery/Bien/zorro2.jpg",
-      "/Gallery/Bien/zorro3.jpg",
+      "/Gallery/Bien/Silita1.jpg",
+      "/Gallery/Bien/Silita2.jpg",
+      "/Gallery/Bien/Silita3.jpg",
     ]
   },
   ,
@@ -243,9 +243,43 @@ export const videosData = [
     },
     url: "https://www.youtube.com/shorts/wGfeez_CxR0",
     gallery: [
-      "/Gallery/Bien/zorro1.jpg",
-      "/Gallery/Bien/zorro2.jpg",
-      "/Gallery/Bien/zorro3.jpg",
+      "/Gallery/Hugo/Hugo1.jpg",
+      "/Gallery/Hugo/Hugo2.jpg",
+      "/Gallery/Hugo/Hugo3.jpg",
+    ]
+  }
+  ,
+  {
+    id: 17,
+    title: "Pull&Bear - Lennon Gallagher",
+    category: "Comercials",
+    creditos: {
+      descripcion: "",
+      director: "",
+      photographer: "",
+    },
+    url: "https://www.youtube.com/watch?v=GY9gPYY8cYI",
+    gallery: [
+      "/Gallery/Pull/Pull1.jpg",
+      "/Gallery/Pull/Pull2.jpg",
+      "/Gallery/Pull/Pull3.jpg",
+    ]
+  }
+  ,
+  {
+    id: 18,
+    title: "Footlocker",
+    category: "Comercials",
+    creditos: {
+      descripcion: "",
+      director: "",
+      photographer: "",
+    },
+    url: "https://www.youtube.com/watch?v=7KfqXlnE3_4",
+    gallery: [
+      "/Gallery/Foot/Foot1.jpg",
+      "/Gallery/Foot/Foot2.jpg",
+      "/Gallery/Foot/Foot3.jpg",
     ]
   }
 ];
