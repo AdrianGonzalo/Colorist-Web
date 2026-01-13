@@ -346,11 +346,10 @@
 // GALERIA IZQUIERDA EN DESK DEBAJO EN MOVIL
 
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 export default function VideoModal({
   videos,
@@ -360,14 +359,13 @@ export default function VideoModal({
 }) {
   const router = useRouter();
   const video = videos[currentIndex];
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
   if (!video) return null;
 
   const id = video.url?.match(
     /(?:v=|youtu\.be\/|embed\/|shorts\/)([a-zA-Z0-9_-]{11})/
   )?.[1];
-
 
   const handlePrev = () =>
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : videos.length - 1));
@@ -386,7 +384,7 @@ export default function VideoModal({
               key={index}
               src={img}
               className="w-full h-20 object-cover cursor-pointer hover:opacity-80 transition"
-              onClick={() => setSelectedImage(img)}
+              onClick={() => setSelectedImageIndex(index)}
             />
           ))
         ) : (
@@ -399,20 +397,15 @@ export default function VideoModal({
   );
 
   useEffect(() => {
-    const handlePopState = (event) => {
+    const handlePopState = () => {
       onClose(); // cierra el modal si se pulsa atrás
     };
-
     window.addEventListener("popstate", handlePopState);
-
-    return () => {
-      window.removeEventListener("popstate", handlePopState);
-    };
+    return () => window.removeEventListener("popstate", handlePopState);
   }, [onClose]);
 
   const handleClose = () => {
     onClose();
-    // retrocedemos en el historial solo si pusimos un estado antes
     if (window.history.state && window.history.state.modal) {
       window.history.back();
     }
@@ -460,24 +453,24 @@ export default function VideoModal({
                 <div className="text-gray-300 space-y-1">
                   {video.creditos.descripcion && (
                     <p>
-                      <span className="font-semibold">Descripcion:</span> {video.creditos.descripcion}
+                      <span className="font-semibold">Descripcion:</span>{" "}
+                      {video.creditos.descripcion}
                     </p>
                   )}
-
                   {video.creditos.director && (
                     <p>
-                      <span className="font-semibold">Director:</span> {video.creditos.director}
+                      <span className="font-semibold">Director:</span>{" "}
+                      {video.creditos.director}
                     </p>
                   )}
-
                   {video.creditos.photographer && (
                     <p>
-                      <span className="font-semibold">Photographer:</span> {video.creditos.photographer}
+                      <span className="font-semibold">Photographer:</span>{" "}
+                      {video.creditos.photographer}
                     </p>
                   )}
                 </div>
               )}
-
 
               {/* GALERÍA SOLO EN DESKTOP */}
               <div className="hidden md:block">
@@ -533,25 +526,54 @@ export default function VideoModal({
         </div>
       </motion.div>
 
-      {/* IMAGEN AMPLIADA */}
-      {selectedImage &&
+      {/* IMAGEN AMPLIADA CON NAVEGACIÓN */}
+      {selectedImageIndex !== null &&
         createPortal(
           <motion.div
             className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-[6000]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedImageIndex(null)}
           >
+            {/* FLECHA IZQUIERDA */}
+            <button
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/40 hover:bg-white/40 text-white text-2xl rounded-md shadow-lg transition z-[7000]"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImageIndex((prev) =>
+                  prev > 0 ? prev - 1 : video.gallery.length - 1
+                );
+              }}
+            >
+              ←
+
+            </button>
+
+            {/* IMAGEN */}
             <motion.img
-              src={selectedImage}
+              src={video.gallery[selectedImageIndex]}
               className="max-w-[90%] max-h-[90%] shadow-2xl"
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               onClick={(e) => e.stopPropagation()}
             />
+
+            {/* FLECHA DERECHA */}
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/40 hover:bg-white/40 text-white text-2xl rounded-md shadow-lg transition z-[7000]"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImageIndex((prev) =>
+                  prev < video.gallery.length - 1 ? prev + 1 : 0
+                );
+              }}
+            >
+              →
+            </button>
           </motion.div>,
           document.body
         )}
+
     </>
   );
 }

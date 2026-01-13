@@ -16,7 +16,10 @@ export default function Footer() {
           <p className="font-semibold text-neutral-100">
             Helí Suárez · Colorist
           </p>
-          <p className="text-sm">© 2025 Todos los derechos reservados</p>
+          <p className="text-sm">
+            © {new Date().getFullYear()} Todos los derechos reservados
+          </p>
+
         </div>
 
         <div className="flex flex-row items-center gap-6 md:gap-8 mt-4 md:mt-0 md:mr-12">
