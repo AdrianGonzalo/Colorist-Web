@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import VideoModal from "./VideoModal";
+import Image from "next/image";
 
 function getYouTubeID(url) {
   const patterns = [
@@ -28,7 +29,7 @@ export default function VideoGrid({ videos }) {
   return (
     <>
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  w-full px-4 md:px-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full px-4 md:px-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
@@ -47,7 +48,6 @@ export default function VideoGrid({ videos }) {
           return (
             <motion.div
               key={video.id}
-              // whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.2 }}
               className="relative overflow-hidden shadow-lg bg-black aspect-video group cursor-pointer"
               onMouseEnter={() => setHovered(video.id)}
@@ -56,11 +56,10 @@ export default function VideoGrid({ videos }) {
                 setSelectedVideoIndex(i);
                 window.history.pushState({ modal: true }, '', window.location.href);
               }}
-
             >
               {/* Título overlay */}
               <div className="absolute inset-0 z-20 flex flex-col justify-end pointer-events-none">
-                <div className="w-full text-white text-lg font-bold leading-5 px-3 py-1 truncate ">
+                <div className="w-full text-white text-lg font-bold leading-5 px-3 py-1 truncate">
                   {desc}
                 </div>
               </div>
@@ -68,40 +67,40 @@ export default function VideoGrid({ videos }) {
               {/* Miniatura HD */}
               {thumb ? (
                 <>
-                  <motion.img
-                    src={thumb}
-                    alt={video.title}
-                    className="w-full h-full object-cover"
+                  <motion.div
+                    className="w-full h-full relative"
                     initial={{ opacity: 1 }}
                     animate={{ opacity: hovered === video.id ? 0 : 1 }}
                     transition={{ duration: 0.3 }}
-                    onError={(e) => {
-                      const fallbackOrder = [
-                        "maxresdefault.jpg",
-                        "hqdefault.jpg",
-                        "mqdefault.jpg",
-                        "default.jpg",
-                      ];
+                  >
+                    <Image
+                      src={thumb}
+                      alt={video.title}
+                      fill
+                      className="object-cover"
+                      onError={(e) => {
+                        const fallbackOrder = [
+                          "maxresdefault.jpg",
+                          "hqdefault.jpg",
+                          "mqdefault.jpg",
+                          "default.jpg",
+                        ];
 
-                      const currentFile = fallbackOrder.find((f) =>
-                        e.target.src.includes(f)
-                      );
-                      const currentIndex = fallbackOrder.indexOf(currentFile);
+                        const currentFile = fallbackOrder.find((f) =>
+                          e.target.src.includes(f)
+                        );
+                        const currentIndex = fallbackOrder.indexOf(currentFile);
 
-                      if (currentIndex === -1) {
-                        e.target.src = "/fallback-thumbnail.jpg";
-                        return;
-                      }
+                        if (currentIndex === -1 || currentIndex === fallbackOrder.length - 1) {
+                          e.target.src = "/fallback-thumbnail.jpg";
+                          return;
+                        }
 
-                      if (currentIndex === fallbackOrder.length - 1) {
-                        e.target.src = "/fallback-thumbnail.jpg";
-                        return;
-                      }
-
-                      const next = fallbackOrder[currentIndex + 1];
-                      e.target.src = `https://img.youtube.com/vi/${id}/${next}`;
-                    }}
-                  />
+                        const next = fallbackOrder[currentIndex + 1];
+                        e.target.src = `https://img.youtube.com/vi/${id}/${next}`;
+                      }}
+                    />
+                  </motion.div>
 
                   {/* Preview autoplay cuando está en hover */}
                   {hovered === video.id && (

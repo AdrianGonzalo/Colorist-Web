@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function VideoModal({
   videos,
@@ -33,12 +34,15 @@ export default function VideoModal({
       <div className="grid grid-cols-3 gap-2">
         {video.gallery && video.gallery.length > 0 ? (
           video.gallery.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              className="w-full h-20 object-cover cursor-pointer hover:opacity-80 transition"
-              onClick={() => setSelectedImageIndex(index)}
-            />
+            <div key={index} className="relative w-full h-20 cursor-pointer">
+              <Image
+                src={img}
+                alt={`Gallery ${index + 1}`}
+                fill
+                className="object-cover hover:opacity-80 transition"
+                onClick={() => setSelectedImageIndex(index)}
+              />
+            </div>
           ))
         ) : (
           <p className="col-span-3 text-gray-400 text-sm">
@@ -196,10 +200,12 @@ export default function VideoModal({
                 if (selectedImageIndex > 0) {
                   setSelectedImageIndex(selectedImageIndex - 1);
                 } else {
-                  // ir al video anterior
-                  const prevVideoIndex = currentIndex > 0 ? currentIndex - 1 : videos.length - 1;
+                  const prevVideoIndex =
+                    currentIndex > 0 ? currentIndex - 1 : videos.length - 1;
                   setCurrentIndex(prevVideoIndex);
-                  setSelectedImageIndex(videos[prevVideoIndex].gallery.length - 1);
+                  setSelectedImageIndex(
+                    videos[prevVideoIndex].gallery.length - 1
+                  );
                 }
               }}
             >
@@ -207,13 +213,15 @@ export default function VideoModal({
             </button>
 
             {/* IMAGEN */}
-            <motion.img
-              src={video.gallery[selectedImageIndex]}
-              className="max-w-[90%] max-h-[90%] shadow-2xl"
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              onClick={(e) => e.stopPropagation()}
-            />
+            <div className="relative w-[90vw] h-[90vh]">
+              <Image
+                src={video.gallery[selectedImageIndex]}
+                alt={`Gallery Image ${selectedImageIndex + 1}`}
+                fill
+                className="object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
 
             {/* FLECHA DERECHA */}
             <button
@@ -223,8 +231,8 @@ export default function VideoModal({
                 if (selectedImageIndex < video.gallery.length - 1) {
                   setSelectedImageIndex(selectedImageIndex + 1);
                 } else {
-                  // ir al siguiente video
-                  const nextVideoIndex = currentIndex < videos.length - 1 ? currentIndex + 1 : 0;
+                  const nextVideoIndex =
+                    currentIndex < videos.length - 1 ? currentIndex + 1 : 0;
                   setCurrentIndex(nextVideoIndex);
                   setSelectedImageIndex(0);
                 }
@@ -232,11 +240,9 @@ export default function VideoModal({
             >
               →
             </button>
-
           </motion.div>,
           document.body
         )}
-
     </>
   );
 }
