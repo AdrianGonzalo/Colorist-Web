@@ -10,13 +10,19 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@sanity/client": "^7.14.0",
+    "@sanity/image-url": "^1.2.0",
+    "@sanity/vision": "^4.22.0",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.552.0",
     "next": "16.0.10",
+    "next-sanity": "^11.6.12",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "react-player": "^3.4.0"
+    "react-player": "^3.4.0",
+    "sanity": "^4.22.0",
+    "styled-components": "^6.3.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

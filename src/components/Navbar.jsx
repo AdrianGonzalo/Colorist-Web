@@ -151,6 +151,12 @@ export default function Navbar() {
             Works
           </a>
           <a
+            href="/Blog"
+            className="hover:text-gray-400 transition-colors"
+          >
+            Blog
+          </a>
+          <a
             href="#contacto"
             onClick={(e) => handleSmoothScroll(e, "contacto")}
             className="hover:text-gray-400 transition-colors"
