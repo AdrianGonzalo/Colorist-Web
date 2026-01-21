@@ -242,8 +242,8 @@ export const videosData = [
     },
     url: "https://www.youtube.com/shorts/wGfeez_CxR0",
     gallery: [
-      "/Gallery/Hugo/Hugo1.jpg",
-      "/Gallery/Hugo/Hugo2.jpg",
+      "/Gallery/Hugo/Hugo4.jpg",
+      "/Gallery/Hugo/Hugo6.jpg",
       "/Gallery/Hugo/Hugo3.jpg",
     ]
   }
