@@ -123,11 +123,11 @@ export default function Privacy() {
               cancellation, and objection (ARCO) at any time by sending an email
               to
               <a
-                href="mailto:contact@heli-suarez.com"
+                href="mailto:heli.suarez@outlook.com"
                 className="text-blue-400 underline"
               >
                 {" "}
-                contact@heli-suarez.com
+                heli.suarez@outlook.com
               </a>
               .
             </p>

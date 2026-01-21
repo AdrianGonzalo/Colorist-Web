@@ -76,11 +76,14 @@ export default function Contact() {
           <div className="flex justify-center md:justify-start gap-4 mt-6">
             <a
               href="https://www.instagram.com/mrpix3l/?hl=es"
+              target="_blank"
+              rel="noopener noreferrer"
               className="p-2  bg-neutral-800 hover:bg-neutral-700 transition"
               aria-label="Instagram"
             >
               <Instagram size={18} />
             </a>
+
           </div>
         </motion.div>
 

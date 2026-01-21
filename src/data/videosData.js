@@ -276,7 +276,7 @@ export const videosData = [
     },
     url: "https://www.youtube.com/watch?v=7KfqXlnE3_4",
     gallery: [
-      "/Gallery/Foot/Foot1.jpg",
+      "/Gallery/Foot/Foot4.jpg",
       "/Gallery/Foot/Foot2.jpg",
       "/Gallery/Foot/Foot3.jpg",
     ]

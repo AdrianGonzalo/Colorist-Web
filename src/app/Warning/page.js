@@ -43,13 +43,13 @@ export default function Warning() {
               Owner Information
             </h2>
             <p className="text-neutral-300 leading-relaxed text-left">
-              Helí Suárez – Address: 123 Fake Street, City, Spain – Email:
+              Helí Suárez – Spain – Email:
               <a
-                href="mailto:contact@heli-suarez.com"
+                href="mailto:heli.suarez@outlook.com"
                 className="text-blue-400 underline"
               >
                 {" "}
-                contact@heli-suarez.com
+                heli.suarez@outlook.com
               </a>
             </p>
           </div>
