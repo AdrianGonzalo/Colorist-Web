@@ -196,7 +196,6 @@ export const videosData = [
       "/Gallery/Bien/Silita3.jpg",
     ]
   },
-  ,
   {
     id: 14,
     title: "Metropolitan - Spot",
