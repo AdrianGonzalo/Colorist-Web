@@ -1,16 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-export default function VideoModal({
-  videos,
-  currentIndex,
-  setCurrentIndex,
-  onClose,
-}) {
+export default function VideoModal({ videos, currentIndex, setCurrentIndex, onClose }) {
   const router = useRouter();
   const video = videos[currentIndex];
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
@@ -21,10 +16,66 @@ export default function VideoModal({
     /(?:v=|youtu\.be\/|embed\/|shorts\/)([a-zA-Z0-9_-]{11})/
   )?.[1];
 
-  const handlePrev = () =>
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : videos.length - 1));
-  const handleNext = () =>
-    setCurrentIndex((prev) => (prev < videos.length - 1 ? prev + 1 : 0));
+  // Función unificada para navegar entre imágenes
+  const navigateImage = useCallback(
+    (direction) => {
+      if (!video.gallery || video.gallery.length === 0) return;
+
+      if (direction === "left") {
+        if (selectedImageIndex > 0) {
+          setSelectedImageIndex(selectedImageIndex - 1);
+        } else {
+          const prevVideoIndex = currentIndex > 0 ? currentIndex - 1 : videos.length - 1;
+          setCurrentIndex(prevVideoIndex);
+          setSelectedImageIndex(videos[prevVideoIndex].gallery.length - 1);
+        }
+      } else if (direction === "right") {
+        if (selectedImageIndex < video.gallery.length - 1) {
+          setSelectedImageIndex(selectedImageIndex + 1);
+        } else {
+          const nextVideoIndex = currentIndex < videos.length - 1 ? currentIndex + 1 : 0;
+          setCurrentIndex(nextVideoIndex);
+          setSelectedImageIndex(0);
+        }
+      }
+    },
+    [currentIndex, selectedImageIndex, video, videos, setCurrentIndex]
+  );
+
+  // Manejo de teclado
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") navigateImage("left");
+      if (e.key === "ArrowRight") navigateImage("right");
+      if (e.key === "Escape") setSelectedImageIndex(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [navigateImage]);
+
+  // Manejo de "atrás" del navegador
+  useEffect(() => {
+    const handlePopState = () => onClose();
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [onClose]);
+
+  const handleClose = () => {
+    onClose();
+    if (window.history.state && window.history.state.modal) {
+      window.history.back();
+    }
+  };
+
+  const handlePrev = () => {
+    const prevVideoIndex = currentIndex > 0 ? currentIndex - 1 : videos.length - 1;
+    setCurrentIndex(prevVideoIndex);
+  };
+
+  const handleNext = () => {
+    const nextVideoIndex = currentIndex < videos.length - 1 ? currentIndex + 1 : 0;
+    setCurrentIndex(nextVideoIndex);
+  };
 
   const Gallery = () => (
     <div className="mt-6 w-full">
@@ -45,28 +96,11 @@ export default function VideoModal({
             </div>
           ))
         ) : (
-          <p className="col-span-3 text-gray-400 text-sm">
-            No gallery available
-          </p>
+          <p className="col-span-3 text-gray-400 text-sm">No gallery available</p>
         )}
       </div>
     </div>
   );
-
-  useEffect(() => {
-    const handlePopState = () => {
-      onClose(); // cierra el modal si se pulsa atrás
-    };
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, [onClose]);
-
-  const handleClose = () => {
-    onClose();
-    if (window.history.state && window.history.state.modal) {
-      window.history.back();
-    }
-  };
 
   return (
     <>
@@ -95,11 +129,9 @@ export default function VideoModal({
                 >
                   MrPix3l
                 </h2>
-
                 <h2 className="text-blue-600 font-semibold text-lg md:text-xl">
                   {video.category || "CATEGORY"}
                 </h2>
-
                 <h3 className="text-white text-xl md:text-2xl font-bold">
                   {video.title}
                 </h3>
@@ -155,8 +187,7 @@ export default function VideoModal({
           {/* BOTÓN CERRAR */}
           <button
             onClick={handleClose}
-            className="absolute top-6 right-6 text-white text-xl bg-white/30
-                       hover:bg-white/0 p-2 w-10 h-10 transition z-[7000]"
+            className="absolute top-6 right-6 text-white text-xl bg-white/30 hover:bg-white/0 p-2 w-10 h-10 transition z-[7000]"
           >
             ✕
           </button>
@@ -197,16 +228,7 @@ export default function VideoModal({
               className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/40 hover:bg-white/40 text-white text-2xl rounded-md shadow-lg transition z-[7000]"
               onClick={(e) => {
                 e.stopPropagation();
-                if (selectedImageIndex > 0) {
-                  setSelectedImageIndex(selectedImageIndex - 1);
-                } else {
-                  const prevVideoIndex =
-                    currentIndex > 0 ? currentIndex - 1 : videos.length - 1;
-                  setCurrentIndex(prevVideoIndex);
-                  setSelectedImageIndex(
-                    videos[prevVideoIndex].gallery.length - 1
-                  );
-                }
+                navigateImage("left");
               }}
             >
               ←
@@ -228,14 +250,7 @@ export default function VideoModal({
               className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/40 hover:bg-white/40 text-white text-2xl rounded-md shadow-lg transition z-[7000]"
               onClick={(e) => {
                 e.stopPropagation();
-                if (selectedImageIndex < video.gallery.length - 1) {
-                  setSelectedImageIndex(selectedImageIndex + 1);
-                } else {
-                  const nextVideoIndex =
-                    currentIndex < videos.length - 1 ? currentIndex + 1 : 0;
-                  setCurrentIndex(nextVideoIndex);
-                  setSelectedImageIndex(0);
-                }
+                navigateImage("right");
               }}
             >
               →
