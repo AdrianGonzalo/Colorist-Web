@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import imageUrlBuilder from "@sanity/image-url";
-import { sanityClient } from "@/sanity/client";
+import { sanityClient } from "@/sanity/client.public";
 
 const builder = imageUrlBuilder(sanityClient);
 const urlFor = (source) => builder.image(source).width(800).url();

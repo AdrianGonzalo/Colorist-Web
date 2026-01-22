@@ -1,5 +1,5 @@
 // src/app/Blog/page.jsx
-import { sanityClient } from "@/sanity/client";
+import { sanityClient } from "@/sanity/client.server";
 import PostList from "./PostList"; // importamos el componente client
 
 export default async function Blog() {
