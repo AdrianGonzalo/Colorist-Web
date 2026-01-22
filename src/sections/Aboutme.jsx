@@ -7,6 +7,8 @@ import Clients from "@/components/Clients";
 export default function About() {
   return (
     <section className="w-full">
+      <Clients />
+
       <div
         id="about"
         className="relative flex flex-col md:flex-row items-center px-8 py-30 overflow-hidden max-w-7xl mx-auto"
@@ -81,7 +83,6 @@ export default function About() {
         </motion.div>
 
       </div>
-      <Clients />
     </section>
   );
 }

@@ -1,14 +1,14 @@
 import Image from "next/image";
 
 const clients = [
-    { name: "Voll-Damm", logo: "/Clients/Voll-Damm.svg", large: true },
-    { name: "Kutxabank", logo: "/Clients/Kutxabank.svg" },
-    { name: "Oysho", logo: "/Clients/Oysho.svg" },
-    { name: "Metropolitan", logo: "/Clients/ClubM.svg", large: true },
     { name: "Nike", logo: "/Clients/Nike.svg" },
     { name: "Hugo Boss", logo: "/Clients/Hugo.svg" },
     { name: "Foot Locker", logo: "/Clients/Foot.svg" },
     { name: "Pull&Beart", logo: "/Clients/Pull&Bear.svg" },
+    { name: "Voll-Damm", logo: "/Clients/Voll-Damm.svg", large: true },
+    { name: "Kutxabank", logo: "/Clients/Kutxabank.svg" },
+    { name: "Oysho", logo: "/Clients/Oysho.svg" },
+    { name: "Metropolitan", logo: "/Clients/ClubM.svg", large: true },
 ];
 
 export default function Clients() {
