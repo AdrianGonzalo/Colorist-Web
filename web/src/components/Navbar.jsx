@@ -81,16 +81,24 @@
 // }
 
 "use client";
+
 import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const navbarHeight = 80; // ajusta si tu navbar cambia de tamaño
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -98,6 +106,14 @@ export default function Navbar() {
   const handleSmoothScroll = (e, id) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+
+    // Si NO estamos en home, navegamos primero
+    if (pathname !== "/") {
+      router.push(`/#${id}`);
+      return;
+    }
+
+    // Si estamos en home, hacemos scroll suave
     const section = document.getElementById(id);
     if (section) {
       window.scrollTo({
@@ -110,25 +126,20 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${mobileMenuOpen || scrolled
-        ? "bg-black text-white"
-        : "bg-transparent text-black"
+          ? "bg-black text-white"
+          : "bg-transparent text-black"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/">
-          {/* <Image
-            src="/Logo.svg"
-            alt="Logo"
-            width={48} // tamaño base más pequeño
-            height={48}
-            className="w-12 h-auto md:w-16 md:h-auto object-contain"
-            priority
-          /> */}
-          <h2 className="text-white text-3xl md:text-5xl font-bold">MrPix3l</h2>
+        {/* LOGO */}
+        <a href="/" onClick={() => setMobileMenuOpen(false)}>
+          <h2 className="text-white text-3xl md:text-5xl font-bold">
+            MrPix3l
+          </h2>
         </a>
 
-        {/* Menú desktop */}
-        <div className="hidden text-xl md:flex space-x-10 text-2xl font-medium text-white">
+        {/* MENÚ DESKTOP */}
+        <div className="hidden md:flex space-x-10 text-2xl font-medium text-white">
           <a
             href="#inicio"
             onClick={(e) => handleSmoothScroll(e, "inicio")}
@@ -152,6 +163,7 @@ export default function Navbar() {
           </a>
           <a
             href="/Blog"
+            onClick={() => setMobileMenuOpen(false)}
             className="hover:text-gray-400 transition-colors"
           >
             Blog
@@ -165,7 +177,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Botón hamburguesa móvil */}
+        {/* BOTÓN HAMBURGUESA */}
         <button
           className="md:hidden text-white focus:outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -205,10 +217,11 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Menú móvil */}
+      {/* MENÚ MÓVIL */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-black bg-opacity-90 text-white px-6 py-4 flex flex-col space-y-4 text-xl font-medium">
-          <div className="bg-gray-400 w-full h-0.5"></div>
+          <div className="bg-gray-400 w-full h-0.5" />
+
           <a
             href="#inicio"
             onClick={(e) => handleSmoothScroll(e, "inicio")}
@@ -232,6 +245,7 @@ export default function Navbar() {
           </a>
           <a
             href="/Blog"
+            onClick={() => setMobileMenuOpen(false)}
             className="hover:text-gray-400 transition-colors"
           >
             Blog
