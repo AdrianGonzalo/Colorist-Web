@@ -16,7 +16,7 @@ export default function Clients() {
         <section className="w-full pb-28 border-y dark:border-neutral-500/40 bg-black/20">
             <div className="pt-16">
                 <p className="text-lg uppercase tracking-[0.35em] text-center text-neutral-200 mb-14">
-                    Selected clients & collaborations
+                    Trusted me
                 </p>
 
                 <div className="grid grid-cols-2 [@media(min-width:900px)]:grid-cols-4 lg:grid-cols-8 place-items-center gap-y-12 w-full">
