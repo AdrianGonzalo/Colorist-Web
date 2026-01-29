@@ -65,13 +65,16 @@ export default function Carrusel() {
   return (
     <section className="relative w-screen h-screen overflow-hidden">
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center ">
-        <h1 className="z-40 text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+        <h1 className="z-40 text-white font-light tracking-wide text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
           Helí Suárez
         </h1>
-        <h4 className="z-40 text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-          Colorist
-        </h4>
+
+        <span className="mt-4 w-12 h-px bg-white/90" />
+
+        <p className="z-40 mt-4 text-white/80 uppercase tracking-[0.35em] sm:text-lg">
+          Color Grading
+        </p>
       </div>
 
       {images.map((src, i) => {

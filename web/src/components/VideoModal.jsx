@@ -79,7 +79,7 @@ export default function VideoModal({ videos, currentIndex, setCurrentIndex, onCl
 
   const Gallery = () => (
     <div className="mt-6 w-full">
-      <h3 className="text-white text-xl md:text-2xl font-bold mb-6 md:mb-8">
+      <h3 className="text-white text-lg md:text-xl font-bold mb-6 md:mb-8">
         Gallery
       </h3>
       <div className="grid grid-cols-3 gap-2">
@@ -125,14 +125,14 @@ export default function VideoModal({ videos, currentIndex, setCurrentIndex, onCl
                     handleClose();
                     router.push("/");
                   }}
-                  className="text-4xl md:text-6xl mb-6 md:mb-10 cursor-pointer hover:text-blue-400 transition"
+                  className="text-3xl md:text-5xl mb-6 md:mb-10 cursor-pointer hover:text-blue-400 transition"
                 >
                   MrPix3l
                 </h2>
-                <h2 className="text-blue-600 font-semibold text-lg md:text-xl">
+                <h2 className="text-blue-600 font-semibold text-lg md:text-xl mb-2">
                   {video.category || "CATEGORY"}
                 </h2>
-                <h3 className="text-white text-xl md:text-2xl font-bold">
+                <h3 className="text-white text-xl md:text-xl font-bold">
                   {video.title}
                 </h3>
               </div>

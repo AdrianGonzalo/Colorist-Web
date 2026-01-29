@@ -199,7 +199,7 @@ export const videosData = [
   {
     id: 14,
     title: "Metropolitan - Spot",
-    category: "Comercials",
+    category: "Commercials",
     creditos: {
       descripcion: "",
       director: "",
@@ -217,7 +217,7 @@ export const videosData = [
   {
     id: 15,
     title: "Kutxabank - Pensiones",
-    category: "Comercials",
+    category: "Commercials",
     creditos: {
       descripcion: "",
       director: "",
@@ -234,7 +234,7 @@ export const videosData = [
   {
     id: 16,
     title: "Hugo Boss - Fashion Week Milan",
-    category: "Comercials",
+    category: "Commercials",
     creditos: {
       descripcion: "",
       director: "",
@@ -251,7 +251,7 @@ export const videosData = [
   {
     id: 17,
     title: "Pull&Bear - Lennon Gallagher",
-    category: "Comercials",
+    category: "Commercials",
     creditos: {
       descripcion: "",
       director: "",
@@ -268,7 +268,7 @@ export const videosData = [
   {
     id: 18,
     title: "Footlocker",
-    category: "Comercials",
+    category: "Commercials",
     creditos: {
       descripcion: "",
       director: "",

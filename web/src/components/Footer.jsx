@@ -9,7 +9,7 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="w-full bg-neutral-900 text-neutral-400 py-8 px-6"
+      className="w-full bg-neutral-900 text-neutral-400 py-8 px-6 text-sm"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left space-y-2">

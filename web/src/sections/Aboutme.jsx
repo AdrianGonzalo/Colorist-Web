@@ -39,49 +39,59 @@ export default function About() {
           transition={{ delay: 0.2, duration: 0.8 }}
           className="md:w-2/3 text-center md:text-left space-y-7 text-gray-700 dark:text-gray-300 leading-relaxed z-10"
         >
-          <h2 className="text-5xl md:text-6xl font-extralight tracking-wide text-gray-800 dark:text-gray-100 mb-8 relative">
+          <h2 className="text-4xl md:text-5xl font-extralight tracking-wide text-gray-800 dark:text-gray-100 mb-8 relative">
             About me
             <span className="absolute -bottom-2 left-1/2 md:left-0 w-20 h-[2px] bg-neutral-700 dark:bg-neutral-300 transform -translate-x-1/2 md:translate-x-0" />
           </h2>
 
-          <p className="text-lg text-neutral-700 dark:text-neutral-300">
-            I am{" "}
+          <p className="text-neutral-700 dark:text-neutral-300">
+            I’m a{" "}
             <span className="font-semibold text-neutral-900 dark:text-white">
-              Helí Suárez
-            </span>
-            , a professional colorist and lover of stories told through light. My
-            work aims to capture that moment when{" "}
-            <span className="text-neutral-900 dark:text-neutral-100">color</span>{" "}
-            becomes{" "}
+              freelance colorist
+            </span>{" "}
+            with professional experience since{" "}
+            <span className="text-neutral-900 dark:text-neutral-100">2017</span>,
+            specializing in cinematic color grading for{" "}
             <span className="text-neutral-900 dark:text-neutral-100">
-              emotion
+              music videos, film, and commercials
             </span>
             .
           </p>
 
           <p className="text-neutral-600 dark:text-neutral-400">
-            I believe that color does more than beautify an image: it defines it,
-            gives it rhythm, and depth. Each project is an exploration between{" "}
-            <span className="italic">artistic sensitivity</span> and{" "}
-            <span className="italic">technical precision</span>, always seeking
-            the balance between what is seen and what is felt.
+            I work in{" "}
+            <span className="font-medium text-neutral-900 dark:text-neutral-100">
+              DaVinci Resolve
+            </span>{" "}
+            to craft digital cinematic looks and authentic{" "}
+            <span className="italic">film-inspired, analog aesthetics</span>, adapting
+            each grade to the creative and technical needs of every project.
           </p>
 
           <p className="text-neutral-600 dark:text-neutral-400">
-            I have collaborated on productions where visual storytelling is the
-            heart of the project, bringing a perspective that unites{" "}
+            My focus is on solving image issues, creating{" "}
             <span className="text-neutral-900 dark:text-neutral-100">
-              coherence
+              visual consistency
             </span>{" "}
-            and{" "}
+            and elevating{" "}
             <span className="text-neutral-900 dark:text-neutral-100">
-              emotion
-            </span>{" "}
-            in every color-related decision. My goal is always the same: that each
-            image leaves an impression that is not only seen but felt.
+              production value
+            </span>
+            , always serving the story and the emotion behind the image.
           </p>
-        </motion.div>
 
+          <div className="pt-6 flex justify-center md:justify-start">
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-3 px-7 py-3 border border-neutral-800 dark:border-neutral-200 text-neutral-800 dark:text-neutral-200 font-light tracking-wide transition-all duration-300 hover:bg-neutral-800 hover:text-white dark:hover:bg-neutral-200 dark:hover:text-neutral-900"
+            >
+              Let’s elevate your project
+              <span className="transform transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -40,11 +40,11 @@ const interTight = Inter_Tight({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={genos.className}>
-        {/* <body className={plusJakarta.className}> */}
-        {/* <body className={dmSans.className}> */}
-        {/* <body className={inter.className}> */}
-        {/* <body className={interTight.className}> */}
+      {/* <body className={genos.className}> */}
+      {/* <body className={plusJakarta.className}> */}
+      {/* <body className={dmSans.className}> */}
+      {/* <body className={inter.className}> */}
+      <body className={interTight.className}>
         <Navbar />
         <Scroll />
         {children}

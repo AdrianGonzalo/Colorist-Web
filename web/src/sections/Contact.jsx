@@ -42,7 +42,7 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-5xl md:text-6xl font-extralight tracking-wide text-gray-800 dark:text-gray-100 mb-12 relative "
+        className="text-4xl md:text-5xl font-extralight tracking-wide text-gray-800 dark:text-gray-100 mb-12 relative "
       >
         Contact
         <span className="absolute -bottom-2 left-1/2 md:left-0 w-20 h-[2px] bg-neutral-700 dark:bg-neutral-300 transform -translate-x-1/2 md:translate-x-0" />
@@ -56,7 +56,7 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="flex-1 space-y-6 text-center md:text-left"
         >
-          <h3 className="text-xl font-semibold tracking-wide">Helí Suárez</h3>
+          <h3 className="text-lg font-semibold tracking-wide">Helí Suárez</h3>
 
           <p className="text-neutral-300 leading-relaxed">
             Do you have a project in mind? I'm available for collaborations,{" "}

@@ -1,85 +1,3 @@
-// "use client";
-// import { useEffect, useState } from "react";
-// import Image from "next/image";
-
-// export default function Navbar() {
-//   const [scrolled, setScrolled] = useState(false);
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setScrolled(window.scrollY > 50);
-//     };
-//     window.addEventListener("scroll", handleScroll);
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
-
-//   const handleSmoothScroll = (e, id) => {
-//     e.preventDefault();
-//     const section = document.getElementById(id);
-//     if (section) {
-//       window.scrollTo({
-//         top: section.offsetTop, // aquí puedes ajustar los px
-//         behavior: "smooth",
-//       });
-//     }
-//   };
-
-//   return (
-//     <nav
-//       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-//         scrolled ? "bg-black text-white shadow-md" : "bg-transparent text-black"
-//       }`}
-//     >
-//       <div className="max-w-7xl mx-auto px-14 py-6 flex justify-between items-center">
-//         <a href="/">
-//           <Image
-//             src="/Logo.svg"
-//             alt="Logo"
-//             width={60}
-//             height={60}
-//             className="w-16 h-auto object-contain"
-//             priority
-//           />
-//         </a>
-
-//         <div className="flex space-x-16 text-2xl font-medium text-white">
-//           <a
-//             href="#inicio"
-//             onClick={(e) => handleSmoothScroll(e, "inicio")}
-//             className="hover:text-gray-400 transition-colors"
-//           >
-//             Inicio
-//           </a>
-
-//           <a
-//             href="#artista"
-//             onClick={(e) => handleSmoothScroll(e, "artista")}
-//             className="hover:text-gray-400 transition-colors"
-//           >
-//             Artist
-//           </a>
-
-//           <a
-//             href="#trabajos"
-//             onClick={(e) => handleSmoothScroll(e, "trabajos")}
-//             className="hover:text-gray-400 transition-colors"
-//           >
-//             Works
-//           </a>
-
-//           <a
-//             href="#contacto"
-//             onClick={(e) => handleSmoothScroll(e, "contacto")}
-//             className="hover:text-gray-400 transition-colors"
-//           >
-//             Contact
-//           </a>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// }
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -92,7 +10,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const navbarHeight = 80; // ajusta si tu navbar cambia de tamaño
+  const navbarHeight = 80;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -107,13 +25,11 @@ export default function Navbar() {
     e.preventDefault();
     setMobileMenuOpen(false);
 
-    // Si NO estamos en home, navegamos primero
     if (pathname !== "/") {
       router.push(`/#${id}`);
       return;
     }
 
-    // Si estamos en home, hacemos scroll suave
     const section = document.getElementById(id);
     if (section) {
       window.scrollTo({
@@ -126,20 +42,20 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${mobileMenuOpen || scrolled
-          ? "bg-black text-white"
-          : "bg-transparent text-black"
+        ? "bg-black text-white"
+        : "bg-transparent text-black"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* LOGO */}
         <a href="/" onClick={() => setMobileMenuOpen(false)}>
-          <h2 className="text-white text-3xl md:text-5xl font-bold">
+          <h2 className="text-white text-2xl md:text-4xl font-bold">
             MrPix3l
           </h2>
         </a>
 
         {/* MENÚ DESKTOP */}
-        <div className="hidden md:flex space-x-10 text-2xl font-medium text-white">
+        <div className="hidden md:flex space-x-10 text-xl font-medium text-white">
           <a
             href="#inicio"
             onClick={(e) => handleSmoothScroll(e, "inicio")}
