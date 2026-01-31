@@ -8,11 +8,7 @@ export default function Scroll() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 370) {
-        setVisible(true);
-      } else {
-        setVisible(false);
-      }
+      setVisible(window.scrollY > 370);
     };
 
     window.addEventListener("scroll", toggleVisibility);
@@ -27,16 +23,16 @@ export default function Scroll() {
   };
 
   return (
-    <>
+    <div className="fixed inset-0 pointer-events-none z-50">
       {visible && (
         <button
           onClick={scrollToTop}
-          className="z-50 fixed bottom-8 right-8 p-3 rounded-full bg-[#3B82F6] text-white shadow-lg hover:bg-gray-800 transition-all duration-300"
+          className="pointer-events-auto absolute bottom-8 right-8 p-3 rounded-full bg-[#3B82F6] text-white shadow-lg hover:bg-gray-800 transition-all duration-300"
           aria-label="Volver arriba"
         >
           <ArrowUp className="w-5 h-5" />
         </button>
       )}
-    </>
+    </div>
   );
 }

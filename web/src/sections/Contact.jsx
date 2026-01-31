@@ -13,10 +13,10 @@ export default function Contact() {
 
     emailjs
       .sendForm(
-        "service_639zkkq", //Service ID
-        "template_12lbby9", //Template ID
+        "service_639zkkq",
+        "template_12lbby9",
         form.current,
-        "aMbe8ed0UKS7TzjG2" //Public Key
+        "aMbe8ed0UKS7TzjG2"
       )
       .then(
         () => {
@@ -24,9 +24,7 @@ export default function Contact() {
           e.target.reset();
         },
         (error) => {
-          alert(
-            "❌ Ocurrió un error al enviar el mensaje. Inténtalo nuevamente."
-          );
+          alert("❌ Ocurrió un error al enviar el mensaje. Inténtalo nuevamente.");
           console.error(error);
         }
       );
@@ -35,26 +33,27 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="flex flex-col items-center justify-center  text-neutral-100 px-6 py-16"
+      className="flex flex-col items-center justify-center text-neutral-100 px-6 py-16"
     >
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-extralight tracking-wide text-gray-800 dark:text-gray-100 mb-12 relative "
+        className="text-4xl md:text-5xl font-extralight tracking-wide text-gray-800 dark:text-gray-100 mb-12 relative"
       >
         Contact
         <span className="absolute -bottom-2 left-1/2 md:left-0 w-20 h-[2px] bg-neutral-700 dark:bg-neutral-300 transform -translate-x-1/2 md:translate-x-0" />
       </motion.h2>
 
       <div className="flex flex-col md:flex-row justify-between items-start w-full max-w-5xl gap-12">
+        {/* LEFT COLUMN */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex-1 space-y-6 text-center md:text-left"
+          className="relative z-20 flex-1 space-y-6 text-center md:text-left"
         >
           <h3 className="text-lg font-semibold tracking-wide">Helí Suárez</h3>
 
@@ -64,13 +63,14 @@ export default function Contact() {
             and visual consultations.
           </p>
 
-          <div className="space-y-2 text-neutral-400 ">
-            <div className="flex items-center justify-center md:justify-start gap-2">
-              <a href="mailto:heli.suarez@outlook.com">
-                heli.suarez@outlook.com
-              </a>
+          <div className="space-y-2 text-neutral-400">
+            <a
+              href="mailto:heli.suarez@outlook.com"
+              className="pointer-events-auto relative z-30 flex items-center justify-center md:justify-start gap-2 hover:text-neutral-200 transition-colors"
+            >
               <Mail size={18} />
-            </div>
+              <span>heli.suarez@outlook.com</span>
+            </a>
           </div>
 
           <div className="flex justify-center md:justify-start gap-4 mt-6">
@@ -78,15 +78,15 @@ export default function Contact() {
               href="https://www.instagram.com/mrpix3l/?hl=es"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2  bg-neutral-800 hover:bg-neutral-700 transition"
+              className="p-2 bg-neutral-800 hover:bg-neutral-700 transition"
               aria-label="Instagram"
             >
               <Instagram size={18} />
             </a>
-
           </div>
         </motion.div>
 
+        {/* RIGHT COLUMN */}
         <motion.form
           ref={form}
           onSubmit={sendEmail}
@@ -94,7 +94,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex-1 w-full bg-neutral-900 border border-neutral-700  p-8 space-y-6"
+          className="flex-1 w-full bg-neutral-900 border border-neutral-700 p-8 space-y-6"
         >
           <div>
             <label className="block text-sm mb-2 text-neutral-400">Name</label>
@@ -102,7 +102,7 @@ export default function Contact() {
               type="text"
               name="from_name"
               required
-              className="w-full bg-neutral-800 border border-neutral-700  px-4 py-3 text-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-500"
+              className="w-full bg-neutral-800 border border-neutral-700 px-4 py-3 text-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-500"
             />
           </div>
 
@@ -112,25 +112,25 @@ export default function Contact() {
               type="email"
               name="reply_to"
               required
-              className="w-full bg-neutral-800 border border-neutral-700  px-4 py-3 text-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-500"
+              className="w-full bg-neutral-800 border border-neutral-700 px-4 py-3 text-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-500"
             />
           </div>
 
           <div>
             <label className="block text-sm mb-2 text-neutral-400">
-              Menssage
+              Message
             </label>
             <textarea
               name="message"
               rows="5"
               required
-              className="w-full bg-neutral-800 border border-neutral-700  px-4 py-3 text-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-500"
+              className="w-full bg-neutral-800 border border-neutral-700 px-4 py-3 text-neutral-100 focus:outline-none focus:ring-1 focus:ring-neutral-500"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-neutral-300 text-neutral-800 py-3  font-semibold hover:bg-neutral-200 transition"
+            className="w-full bg-neutral-300 text-neutral-800 py-3 font-semibold hover:bg-neutral-200 transition"
           >
             Send
           </button>

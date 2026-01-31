@@ -39,6 +39,18 @@ export default function About() {
           transition={{ delay: 0.2, duration: 0.8 }}
           className="md:w-2/3 text-center md:text-left space-y-7 text-gray-700 dark:text-gray-300 leading-relaxed z-10"
         >
+          <div className="space-y-4 mb-14">
+            <p className="text-xs uppercase tracking-[0.35em] text-neutral-500 dark:text-neutral-400 font-light">
+              Cinematic Color Grading for Premium Film & Commercials
+            </p>
+
+            <p className="italic text md:text-xl font-extralight text-neutral-700 dark:text-neutral-300 leading-relaxed max-full mx-auto md:mx-0">
+              “Transforming your footage into visually striking, high-end cinematic stories.”
+            </p>
+          </div>
+
+
+
           <h2 className="text-4xl md:text-5xl font-extralight tracking-wide text-gray-800 dark:text-gray-100 mb-8 relative">
             About me
             <span className="absolute -bottom-2 left-1/2 md:left-0 w-20 h-[2px] bg-neutral-700 dark:bg-neutral-300 transform -translate-x-1/2 md:translate-x-0" />
