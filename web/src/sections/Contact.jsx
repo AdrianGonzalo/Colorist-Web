@@ -2,21 +2,21 @@
 
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { Mail, Phone, Instagram } from "lucide-react";
+import { Mail, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Contact() {
-  const form = useRef();
+  const form = useRef(null);
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "service_639zkkq",
-        "template_12lbby9",
+        "service_ikb7aon",      // Service ID
+        "template_lln490a",     // Template ID
         form.current,
-        "aMbe8ed0UKS7TzjG2"
+        "U78x8lZ9qW-cjLpZo"     // Public Key
       )
       .then(
         () => {
@@ -24,8 +24,8 @@ export default function Contact() {
           e.target.reset();
         },
         (error) => {
-          alert("❌ Ocurrió un error al enviar el mensaje. Inténtalo nuevamente.");
           console.error(error);
+          alert("❌ Error al enviar el mensaje. Inténtalo de nuevo.");
         }
       );
   };
@@ -53,7 +53,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative z-20 flex-1 space-y-6 text-center md:text-left"
+          className="flex-1 space-y-6 text-center md:text-left"
         >
           <h3 className="text-lg font-semibold tracking-wide">Helí Suárez</h3>
 
@@ -63,15 +63,16 @@ export default function Contact() {
             and visual consultations.
           </p>
 
-          <div className="space-y-2 text-neutral-400">
-            <a
-              href="mailto:heli.suarez@outlook.com"
-              className="pointer-events-auto relative z-30 flex items-center justify-center md:justify-start gap-2 hover:text-neutral-200 transition-colors"
-            >
-              <Mail size={18} />
-              <span>heli.suarez@outlook.com</span>
-            </a>
-          </div>
+          <a
+            href="https://mail.google.com/mail/?view=cm&to=heli.suarez@outlook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2"
+          >
+            <Mail size={18} />
+            Contact via email,{" "}
+            <span className="underline">heli.suarez@outlook.com</span>
+          </a>
 
           <div className="flex justify-center md:justify-start gap-4 mt-6">
             <a

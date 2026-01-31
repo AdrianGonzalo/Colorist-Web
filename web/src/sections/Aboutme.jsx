@@ -37,14 +37,14 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="md:w-2/3 text-center md:text-left space-y-7 text-gray-700 dark:text-gray-300 leading-relaxed z-10"
+          className="md:w-2/3 text-center md:text-left space-y-7 text-gray-700 dark:text-gray-700 leading-relaxed z-10 font-bold"
         >
           <div className="space-y-4 mb-14">
-            <p className="text-xs uppercase tracking-[0.35em] text-neutral-500 dark:text-neutral-400 font-light">
+            <p className="text md:text-xl uppercase tracking-[0.35em] text-neutral-500 dark:text-neutral-400 font-light">
               Cinematic Color Grading for Premium Film & Commercials
             </p>
 
-            <p className="italic text md:text-xl font-extralight text-neutral-700 dark:text-neutral-300 leading-relaxed max-full mx-auto md:mx-0">
+            <p className="italic text-lg font-extralight text-neutral-700 dark:text-neutral-300 leading-relaxed max-full mx-auto md:mx-0">
               “Transforming your footage into visually striking, high-end cinematic stories.”
             </p>
           </div>
