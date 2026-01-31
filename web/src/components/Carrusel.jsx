@@ -166,7 +166,7 @@ export default function Carrusel() {
         <span className="z-40 mt-4 w-12 h-px bg-white/90 shadow-[0_2px_6px_rgba(0,0,0,0.6)]" />
 
 
-        <p className="z-40 mt-4 text-white/80 uppercase tracking-[0.35em] sm:text-xl"
+        <p className="z-40 mt-4 text-white uppercase tracking-[0.35em] sm:text-xl"
           style={{
             textShadow: '0 2px 6px rgba(0,0,0,0.4)',
           }}>
