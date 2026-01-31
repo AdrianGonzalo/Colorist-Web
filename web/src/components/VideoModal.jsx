@@ -125,7 +125,7 @@ export default function VideoModal({ videos, currentIndex, setCurrentIndex, onCl
                     handleClose();
                     router.push("/");
                   }}
-                  className="text-3xl md:text-5xl mb-6 md:mb-10 cursor-pointer hover:text-blue-400 transition"
+                  className="text-3xl md:text-5xl mb-6 md:mb-10 cursor-pointer hover:text-blue-400 transition font-bold"
                 >
                   MrPix3l
                 </h2>

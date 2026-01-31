@@ -58,7 +58,11 @@ export default function VideoGrid({ videos }) {
               }}
             >
               {/* Título overlay */}
-              <div className="absolute inset-0 z-20 flex flex-col justify-end pointer-events-none">
+              <div className="absolute inset-0 z-20 flex flex-col justify-end pointer-events-none"
+                style={{
+                  textShadow: '0 2px 6px rgba(0,0,0,1)',
+                }}
+              >
                 <div className="w-full text-white font-semibold leading-5 px-3 py-1 truncate">
                   {desc}
                 </div>
