@@ -53,7 +53,7 @@ export default function Clients() {
                     className="flex flex-col items-center mb-14"
                 >
                     <p className="text-sm md:text-base uppercase tracking-[0.35em] text-center text-neutral-200">
-                        Trusted me
+                        Trusted by
                     </p>
                     <span className="mt-2 w-16 h-px bg-neutral-300/70" />
                 </motion.div>

@@ -3,6 +3,38 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+import { Lobster, Poiret_One, Boldonse, Jersey_25, Roboto, Montserrat } from "next/font/google";
+
+const lobster = Lobster({
+  subsets: ["latin"],
+  weight: "400",
+  style: "normal",
+});
+
+const poiret = Poiret_One({
+  subsets: ["latin"],
+  weight: "400",
+  style: "normal",
+});
+
+const boldonse = Boldonse({
+  subsets: ["latin"],
+  weight: "400",
+  style: "normal",
+});
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: "800",
+  style: "normal",
+});
+
+const montse = Montserrat({
+  subsets: ["latin"],
+  weight: "400",
+  style: "normal",
+});
+
 const images = [
   "/Carrusel/Imagen1.png",
   "/Carrusel/Imagen2.jpg",
@@ -66,13 +98,79 @@ export default function Carrusel() {
     <section className="relative w-screen h-screen overflow-hidden">
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-        <h1 className="z-40 text-white font-light tracking-wide text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+        {/* <h1
+          className={`${lobster.className} z-40 text-white tracking-wide text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}
+        >
           Helí Suárez
         </h1>
 
-        <span className="z-40 mt-4 w-12 h-px bg-white/90" />
+        <h1
+          className={`${lobster.className} z-40 text-white tracking-[-0.03em] text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}
+        >
+          Helí Suárez
+        </h1>
 
-        <p className="z-40 mt-4 text-white/80 uppercase tracking-[0.35em] sm:text-lg">
+        <h1
+          className={`${boldonse.className} z-40 text-white tracking-[-0.03em] text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-4`}
+        >
+          Helí Suárez
+        </h1> */}
+
+        <h1
+          className={`${poiret.className} z-40 text-white tracking-wide text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}
+          style={{
+            textShadow: '0 2px 6px rgba(0,0,0,0.4)',
+          }}
+        >
+          Helí Suárez
+        </h1>
+
+        {/* <h1
+          className={`${poiret.className} z-40 text-white tracking-wide text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}
+
+        >
+          Helí Suárez
+        </h1> */}
+
+        {/* <h1
+          className={`${roboto.className} z-40 text-white tracking-wide text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}
+        >
+          Helí Suárez
+        </h1>
+
+        <h1
+          className={`${montse.className} z-40 text-white tracking-wide text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}
+          style={{
+            textShadow: '0 2px 6px rgba(0,0,0,0.6)',
+          }}
+        >
+          Helí Suárez
+        </h1>
+
+        <h1
+          className={`${montse.className} z-40 text-white tracking-wide text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}
+        >
+          Helí Suárez
+        </h1> */}
+
+
+
+        {/* <h1
+          className={`${poiret.className} z-40 text-white tracking-wide text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}
+        >
+          Helí Suárez
+        </h1> */}
+
+
+
+        <span className="z-40 mt-4 w-12 h-px bg-white/90 shadow-[0_2px_6px_rgba(0,0,0,0.6)]" />
+
+
+        <p className="z-40 mt-4 text-white/80 uppercase tracking-[0.35em] sm:text-xl"
+          style={{
+            textShadow: '0 2px 6px rgba(0,0,0,0.4)',
+          }}>
+
           Colorist
         </p>
       </div>
