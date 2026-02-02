@@ -1,59 +1,76 @@
 "use client";
+
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-export default function VideoModal({ videos, currentIndex, setCurrentIndex, onClose }) {
+export default function VideoModal({
+  videos,
+  currentIndex,
+  setCurrentIndex,
+  onClose,
+}) {
   const router = useRouter();
   const video = videos[currentIndex];
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
   if (!video) return null;
 
-  const id = video.url?.match(
+  const videoId = video.url?.match(
     /(?:v=|youtu\.be\/|embed\/|shorts\/)([a-zA-Z0-9_-]{11})/
   )?.[1];
 
-  // Función unificada para navegar entre imágenes
+  /* ----------------------------------
+     NAVEGACIÓN IMÁGENES
+  ---------------------------------- */
   const navigateImage = useCallback(
     (direction) => {
-      if (!video.gallery || video.gallery.length === 0) return;
+      if (!video.gallery?.length) return;
 
       if (direction === "left") {
         if (selectedImageIndex > 0) {
-          setSelectedImageIndex(selectedImageIndex - 1);
+          setSelectedImageIndex((i) => i - 1);
         } else {
-          const prevVideoIndex = currentIndex > 0 ? currentIndex - 1 : videos.length - 1;
-          setCurrentIndex(prevVideoIndex);
-          setSelectedImageIndex(videos[prevVideoIndex].gallery.length - 1);
+          const prevVideo =
+            currentIndex > 0 ? currentIndex - 1 : videos.length - 1;
+          setCurrentIndex(prevVideo);
+          setSelectedImageIndex(videos[prevVideo].gallery.length - 1);
         }
-      } else if (direction === "right") {
+      }
+
+      if (direction === "right") {
         if (selectedImageIndex < video.gallery.length - 1) {
-          setSelectedImageIndex(selectedImageIndex + 1);
+          setSelectedImageIndex((i) => i + 1);
         } else {
-          const nextVideoIndex = currentIndex < videos.length - 1 ? currentIndex + 1 : 0;
-          setCurrentIndex(nextVideoIndex);
+          const nextVideo =
+            currentIndex < videos.length - 1 ? currentIndex + 1 : 0;
+          setCurrentIndex(nextVideo);
           setSelectedImageIndex(0);
         }
       }
     },
-    [currentIndex, selectedImageIndex, video, videos, setCurrentIndex]
+    [selectedImageIndex, currentIndex, video, videos, setCurrentIndex]
   );
 
-  // Manejo de teclado
+  /* ----------------------------------
+     TECLADO
+  ---------------------------------- */
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKey = (e) => {
+      if (e.key === "Escape") setSelectedImageIndex(null);
       if (e.key === "ArrowLeft") navigateImage("left");
       if (e.key === "ArrowRight") navigateImage("right");
-      if (e.key === "Escape") setSelectedImageIndex(null);
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
   }, [navigateImage]);
 
-  // Manejo de "atrás" del navegador
+  /* ----------------------------------
+     HISTORIAL
+  ---------------------------------- */
   useEffect(() => {
     const handlePopState = () => onClose();
     window.addEventListener("popstate", handlePopState);
@@ -62,41 +79,47 @@ export default function VideoModal({ videos, currentIndex, setCurrentIndex, onCl
 
   const handleClose = () => {
     onClose();
-    if (window.history.state && window.history.state.modal) {
-      window.history.back();
-    }
+    if (window.history.state?.modal) window.history.back();
   };
 
-  const handlePrev = () => {
-    const prevVideoIndex = currentIndex > 0 ? currentIndex - 1 : videos.length - 1;
-    setCurrentIndex(prevVideoIndex);
+  const handlePrevVideo = () => {
+    setCurrentIndex(
+      currentIndex > 0 ? currentIndex - 1 : videos.length - 1
+    );
   };
 
-  const handleNext = () => {
-    const nextVideoIndex = currentIndex < videos.length - 1 ? currentIndex + 1 : 0;
-    setCurrentIndex(nextVideoIndex);
+  const handleNextVideo = () => {
+    setCurrentIndex(
+      currentIndex < videos.length - 1 ? currentIndex + 1 : 0
+    );
   };
 
+  /* ----------------------------------
+     GALERÍA
+  ---------------------------------- */
   const Gallery = () => (
     <div className="mt-6 w-full">
-      <h3 className="text-white text-lg md:text-xl font-bold mb-6 md:mb-8">
-        Gallery
-      </h3>
+      <h3 className="text-white text-xl font-bold mb-6">Gallery</h3>
       <div className="grid grid-cols-3 gap-2">
-        {video.gallery && video.gallery.length > 0 ? (
+        {video.gallery?.length ? (
           video.gallery.map((img, index) => (
-            <div key={index} className="relative w-full h-20 cursor-pointer">
+            <div
+              key={index}
+              className="relative h-20 cursor-pointer"
+              onClick={() => setSelectedImageIndex(index)}
+            >
               <Image
                 src={img}
                 alt={`Gallery ${index + 1}`}
                 fill
                 className="object-cover hover:opacity-80 transition"
-                onClick={() => setSelectedImageIndex(index)}
               />
             </div>
           ))
         ) : (
-          <p className="col-span-3 text-gray-400 text-sm">No gallery available</p>
+          <p className="col-span-3 text-gray-400 text-sm">
+            No gallery available
+          </p>
         )}
       </div>
     </div>
@@ -104,7 +127,7 @@ export default function VideoModal({ videos, currentIndex, setCurrentIndex, onCl
 
   return (
     <>
-      {/* MODAL VIDEO PRINCIPAL */}
+      {/* ================= MODAL VIDEO ================= */}
       <motion.div
         className="fixed inset-0 bg-black z-[5000] flex"
         initial={{ opacity: 0 }}
@@ -115,106 +138,88 @@ export default function VideoModal({ videos, currentIndex, setCurrentIndex, onCl
           className="relative w-full h-full flex flex-col md:flex-row overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* COLUMNA IZQUIERDA (desktop) */}
-          <aside className="w-full md:max-w-sm p-6 md:p-10 flex flex-col order-1">
-            <div className="space-y-6">
-              {/* TÍTULO Y CATEGORÍA */}
-              <div>
-                <h2
-                  onClick={() => {
-                    handleClose();
-                    router.push("/");
-                  }}
-                  className="text-3xl md:text-5xl mb-6 md:mb-10 cursor-pointer hover:text-blue-400 transition font-bold"
-                >
-                  MrPix3l
-                </h2>
-                <h2 className="text-blue-600 font-semibold text-lg md:text-xl mb-2">
-                  {video.category || "CATEGORY"}
-                </h2>
-                <h3 className="text-white text-xl md:text-xl font-bold">
-                  {video.title}
-                </h3>
-              </div>
+          {/* -------- INFO -------- */}
+          <aside className="w-full md:max-w-sm p-6 md:p-10">
+            <h2
+              onClick={() => {
+                handleClose();
+                router.push("/");
+              }}
+              className="text-4xl mb-10 cursor-pointer hover:text-blue-400 transition font-bold"
+            >
+              MrPix3l
+            </h2>
 
-              {/* CREDITOS */}
-              {video.creditos && (
-                <div className="text-gray-300 space-y-1">
-                  {video.creditos.descripcion && (
-                    <p>
-                      <span className="font-semibold">Descripcion:</span>{" "}
-                      {video.creditos.descripcion}
-                    </p>
-                  )}
-                  {video.creditos.director && (
-                    <p>
-                      <span className="font-semibold">Director:</span>{" "}
-                      {video.creditos.director}
-                    </p>
-                  )}
-                  {video.creditos.photographer && (
-                    <p>
-                      <span className="font-semibold">Photographer:</span>{" "}
-                      {video.creditos.photographer}
-                    </p>
-                  )}
-                </div>
-              )}
+            <h3 className="text-blue-600 font-semibold text-xl">
+              {video.category || "CATEGORY"}
+            </h3>
+            <p className="text-white text-xl font-bold mb-6">
+              {video.title}
+            </p>
 
-              {/* GALERÍA SOLO EN DESKTOP */}
-              <div className="hidden md:block">
-                <Gallery />
+            {video.creditos && (
+              <div className="text-gray-300 space-y-1">
+                {Object.entries(video.creditos).map(
+                  ([key, value]) =>
+                    value && (
+                      <p key={key}>
+                        <span className="font-semibold capitalize">
+                          {key}:
+                        </span>{" "}
+                        {value}
+                      </p>
+                    )
+                )}
               </div>
+            )}
 
-              {/* FLECHAS */}
-              <div className="flex gap-4 mt-10">
-                <button
-                  onClick={handlePrev}
-                  className="text-white border border-white/30 w-10 h-10 flex items-center justify-center hover:bg-white/20 transition"
-                >
-                  ←
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="text-white border border-white/30 w-10 h-10 flex items-center justify-center hover:bg-white/20 transition"
-                >
-                  →
-                </button>
-              </div>
+            <div className="hidden md:block">
+              <Gallery />
+            </div>
+
+            <div className="flex gap-4 mt-10">
+              <button
+                onClick={handlePrevVideo}
+                className="border w-10 h-10 text-white hover:bg-white/20"
+              >
+                ←
+              </button>
+              <button
+                onClick={handleNextVideo}
+                className="border w-10 h-10 text-white hover:bg-white/20"
+              >
+                →
+              </button>
             </div>
           </aside>
 
-          {/* BOTÓN CERRAR */}
+          {/* -------- VIDEO -------- */}
+          <main className="w-full p-6 md:p-10 pt-20">
+            <div className="aspect-video bg-black">
+              <iframe
+                src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                className="w-full h-full"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              />
+            </div>
+
+            <div className="block md:hidden">
+              <Gallery />
+            </div>
+          </main>
+
+          {/* CERRAR */}
           <button
             onClick={handleClose}
-            className="absolute top-6 right-6 text-white text-xl bg-white/30 hover:bg-white/0 p-2 w-10 h-10 transition z-[7000]"
+            className="absolute top-6 right-6 text-white text-xl"
           >
             ✕
           </button>
-
-          {/* COLUMNA DERECHA (video + galería mobile) */}
-          <main className="w-full flex flex-col p-6 md:p-10 pt-10 md:pt-20 justify-start items-start order-2">
-            <div className="w-full max-w-[1700px]">
-              {/* VIDEO */}
-              <div className="aspect-video bg-black overflow-hidden">
-                <iframe
-                  src={`https://www.youtube.com/embed/${id}?autoplay=1&controls=1&modestbranding=1`}
-                  className="w-full h-full"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                />
-              </div>
-
-              {/* GALERÍA SOLO EN MOBILE */}
-              <div className="block md:hidden">
-                <Gallery />
-              </div>
-            </div>
-          </main>
         </div>
       </motion.div>
 
-      {/* IMAGEN AMPLIADA CON NAVEGACIÓN */}
+      {/* ================= MODAL IMAGEN ================= */}
       {selectedImageIndex !== null &&
         createPortal(
           <motion.div
@@ -223,9 +228,9 @@ export default function VideoModal({ videos, currentIndex, setCurrentIndex, onCl
             animate={{ opacity: 1 }}
             onClick={() => setSelectedImageIndex(null)}
           >
-            {/* FLECHA IZQUIERDA */}
+            {/* IZQUIERDA */}
             <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/40 hover:bg-white/40 text-white text-2xl rounded-md shadow-lg transition z-[7000]"
+              className="absolute left-4 text-white text-3xl z-20"
               onClick={(e) => {
                 e.stopPropagation();
                 navigateImage("left");
@@ -234,20 +239,24 @@ export default function VideoModal({ videos, currentIndex, setCurrentIndex, onCl
               ←
             </button>
 
-            {/* IMAGEN */}
-            <div className="relative w-[90vw] h-[90vh]">
+            {/* IMAGEN REAL */}
+            <div
+              className="relative max-w-[90vw] max-h-[90vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
               <Image
                 src={video.gallery[selectedImageIndex]}
-                alt={`Gallery Image ${selectedImageIndex + 1}`}
-                fill
-                className="object-contain"
-                onClick={(e) => e.stopPropagation()}
+                alt="Expanded"
+                width={1600}
+                height={900}
+                className="max-w-[90vw] max-h-[90vh] object-contain"
+                priority
               />
             </div>
 
-            {/* FLECHA DERECHA */}
+            {/* DERECHA */}
             <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/40 hover:bg-white/40 text-white text-2xl rounded-md shadow-lg transition z-[7000]"
+              className="absolute right-4 text-white text-3xl"
               onClick={(e) => {
                 e.stopPropagation();
                 navigateImage("right");
