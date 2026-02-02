@@ -14,7 +14,15 @@ export default function VideoModal({
 }) {
   const router = useRouter();
   const video = videos[currentIndex];
+
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+  // 🔍 ZOOM STATE
+  const [scale, setScale] = useState(1);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const MIN_ZOOM = 1;
+  const MAX_ZOOM = 3;
 
   if (!video) return null;
 
@@ -23,11 +31,33 @@ export default function VideoModal({
   )?.[1];
 
   /* ----------------------------------
+     ZOOM HELPERS
+  ---------------------------------- */
+  const resetZoom = () => {
+    setScale(1);
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const handleWheel = (e) => {
+    e.preventDefault();
+    setScale((prev) => {
+      const next = prev - e.deltaY * 0.001;
+      return Math.min(Math.max(next, MIN_ZOOM), MAX_ZOOM);
+    });
+  };
+
+  useEffect(() => {
+    resetZoom();
+  }, [selectedImageIndex]);
+
+  /* ----------------------------------
      NAVEGACIÓN IMÁGENES
   ---------------------------------- */
   const navigateImage = useCallback(
     (direction) => {
       if (!video.gallery?.length) return;
+
+      resetZoom();
 
       if (direction === "left") {
         if (selectedImageIndex > 0) {
@@ -82,20 +112,8 @@ export default function VideoModal({
     if (window.history.state?.modal) window.history.back();
   };
 
-  const handlePrevVideo = () => {
-    setCurrentIndex(
-      currentIndex > 0 ? currentIndex - 1 : videos.length - 1
-    );
-  };
-
-  const handleNextVideo = () => {
-    setCurrentIndex(
-      currentIndex < videos.length - 1 ? currentIndex + 1 : 0
-    );
-  };
-
   /* ----------------------------------
-     GALERÍA
+     GALERÍA (THUMBNAILS)
   ---------------------------------- */
   const Gallery = () => (
     <div className="mt-6 w-full">
@@ -112,6 +130,8 @@ export default function VideoModal({
                 src={img}
                 alt={`Gallery ${index + 1}`}
                 fill
+                sizes="(max-width: 768px) 33vw, 120px"
+                quality={75}
                 className="object-cover hover:opacity-80 transition"
               />
             </div>
@@ -138,7 +158,7 @@ export default function VideoModal({
           className="relative w-full h-full flex flex-col md:flex-row overflow-y-auto"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* -------- INFO -------- */}
+          {/* INFO */}
           <aside className="w-full md:max-w-sm p-6 md:p-10">
             <h2
               onClick={() => {
@@ -157,43 +177,12 @@ export default function VideoModal({
               {video.title}
             </p>
 
-            {video.creditos && (
-              <div className="text-gray-300 space-y-1">
-                {Object.entries(video.creditos).map(
-                  ([key, value]) =>
-                    value && (
-                      <p key={key}>
-                        <span className="font-semibold capitalize">
-                          {key}:
-                        </span>{" "}
-                        {value}
-                      </p>
-                    )
-                )}
-              </div>
-            )}
-
             <div className="hidden md:block">
               <Gallery />
             </div>
-
-            <div className="flex gap-4 mt-10">
-              <button
-                onClick={handlePrevVideo}
-                className="border w-10 h-10 text-white hover:bg-white/20"
-              >
-                ←
-              </button>
-              <button
-                onClick={handleNextVideo}
-                className="border w-10 h-10 text-white hover:bg-white/20"
-              >
-                →
-              </button>
-            </div>
           </aside>
 
-          {/* -------- VIDEO -------- */}
+          {/* VIDEO */}
           <main className="w-full p-6 md:p-10 pt-20">
             <div className="aspect-video bg-black">
               <iframe
@@ -209,7 +198,6 @@ export default function VideoModal({
             </div>
           </main>
 
-          {/* CERRAR */}
           <button
             onClick={handleClose}
             className="absolute top-6 right-6 text-white text-xl"
@@ -219,7 +207,7 @@ export default function VideoModal({
         </div>
       </motion.div>
 
-      {/* ================= MODAL IMAGEN ================= */}
+      {/* ================= MODAL IMAGEN CON ZOOM ================= */}
       {selectedImageIndex !== null &&
         createPortal(
           <motion.div
@@ -239,24 +227,49 @@ export default function VideoModal({
               ←
             </button>
 
-            {/* IMAGEN REAL */}
+            {/* ZOOM CONTAINER */}
             <div
-              className="relative max-w-[90vw] max-h-[90vh]"
+              className="relative max-w-[90vw] max-h-[90vh] overflow-hidden cursor-grab active:cursor-grabbing"
+              onWheel={handleWheel}
+              onDoubleClick={resetZoom}
               onClick={(e) => e.stopPropagation()}
             >
-              <Image
-                src={video.gallery[selectedImageIndex]}
-                alt="Expanded"
-                width={1600}
-                height={900}
-                className="max-w-[90vw] max-h-[90vh] object-contain"
-                priority
-              />
+              <motion.div
+                drag={scale > 1}
+                dragElastic={0.1}
+                dragConstraints={{
+                  left: -400,
+                  right: 400,
+                  top: -400,
+                  bottom: 400,
+                }}
+                style={{
+                  scale,
+                  x: position.x,
+                  y: position.y,
+                }}
+                onDragEnd={(e, info) =>
+                  setPosition({ x: info.point.x, y: info.point.y })
+                }
+              >
+                <Image
+                  src={video.gallery[selectedImageIndex]}
+                  alt="Expanded"
+                  width={1920}
+                  height={1080}
+                  sizes="90vw"
+                  quality={95}
+                  unoptimized
+                  priority
+                  draggable={false}
+                  className="object-contain max-w-[90vw] max-h-[90vh] select-none"
+                />
+              </motion.div>
             </div>
 
             {/* DERECHA */}
             <button
-              className="absolute right-4 text-white text-3xl"
+              className="absolute right-4 text-white text-3xl z-20"
               onClick={(e) => {
                 e.stopPropagation();
                 navigateImage("right");

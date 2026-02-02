@@ -7,11 +7,11 @@ import { Special_Gothic_Expanded_One } from "next/font/google";
 const special = Special_Gothic_Expanded_One({
   subsets: ["latin"],
   weight: "400",
-  display: "swap", // 👈 importante para el warning
+  display: "swap",
 });
 
 const images = [
-  "/Carrusel/Imagen1.png",
+  "/Carrusel/Imagen1.jpg",
   "/Carrusel/Imagen2.jpg",
   "/Carrusel/Imagen3.jpg",
   "/Carrusel/Imagen4.jpg",
@@ -55,6 +55,8 @@ export default function Carrusel() {
   }, []);
 
   useEffect(() => {
+    if (order.length === 0) return;
+
     const interval = setInterval(() => {
       setIndex((prev) => {
         if (prev === order.length - 1) {
@@ -100,8 +102,11 @@ export default function Carrusel() {
         src={images[current]}
         alt="Imagen actual"
         fill
-        className="object-cover opacity-100 transition-opacity duration-1000"
         priority
+        quality={95}
+        sizes="100vw"
+        unoptimized
+        className="object-cover opacity-100 transition-opacity duration-1000"
       />
 
       {/* Imagen siguiente (preload visual) */}
@@ -110,6 +115,9 @@ export default function Carrusel() {
         src={images[next]}
         alt="Imagen siguiente"
         fill
+        quality={95}
+        sizes="100vw"
+        unoptimized
         className="object-cover opacity-0"
       />
     </section>
