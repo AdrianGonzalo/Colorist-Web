@@ -227,30 +227,30 @@ export default function VideoModal({
               ←
             </button>
 
-            {/* ZOOM CONTAINER */}
+            {/* CONTENEDOR */}
             <div
-              className="relative max-w-[90vw] max-h-[90vh] overflow-hidden cursor-grab active:cursor-grabbing"
-              onWheel={handleWheel}
-              onDoubleClick={resetZoom}
+              className="relative max-w-[90vw] max-h-[90vh] cursor-zoom-in"
               onClick={(e) => e.stopPropagation()}
+              onDoubleClick={() =>
+                setScale((prev) => (prev === 1 ? 2 : 1))
+              }
             >
               <motion.div
                 drag={scale > 1}
-                dragElastic={0.1}
                 dragConstraints={{
-                  left: -400,
-                  right: 400,
-                  top: -400,
-                  bottom: 400,
+                  left: -300,
+                  right: 300,
+                  top: -300,
+                  bottom: 300,
                 }}
-                style={{
+                dragElastic={0.05}
+                animate={{
                   scale,
-                  x: position.x,
-                  y: position.y,
+                  x: 0,
+                  y: 0,
                 }}
-                onDragEnd={(e, info) =>
-                  setPosition({ x: info.point.x, y: info.point.y })
-                }
+                transition={{ type: "spring", stiffness: 260, damping: 30 }}
+                className={scale > 1 ? "cursor-grab" : ""}
               >
                 <Image
                   src={video.gallery[selectedImageIndex]}
@@ -280,6 +280,7 @@ export default function VideoModal({
           </motion.div>,
           document.body
         )}
+
     </>
   );
 }
