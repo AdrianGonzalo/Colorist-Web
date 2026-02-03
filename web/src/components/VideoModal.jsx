@@ -280,7 +280,7 @@ export default function VideoModal({
             onClick={() => setSelectedImageIndex(null)}
           >
             <button
-              className="absolute left-4 text-white text-3xl"
+              className="absolute left-4 text-white text-3xl z-20"
               onClick={(e) => {
                 e.stopPropagation();
                 navigateImage("left");
@@ -307,9 +307,13 @@ export default function VideoModal({
                   alt="Expanded"
                   width={1920}
                   height={1080}
+                  unoptimized
                   draggable={false}
                   className="object-contain max-w-[90vw] max-h-[90vh]"
                 />
+
+
+
               </motion.div>
             </div>
 
