@@ -79,7 +79,7 @@ export default function Navbar() {
           </a>
 
           <a
-            href="/blog.html"
+            href="/blog/"
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-gray-400 transition-colors"
           >
@@ -163,7 +163,7 @@ export default function Navbar() {
           </a>
 
           <a
-            href="/blog.html"
+            href="/blog/"
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-gray-400 transition-colors"
           >

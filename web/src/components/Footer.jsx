@@ -19,14 +19,13 @@ export default function Footer() {
           <p className="text-sm">
             © {new Date().getFullYear()} Todos los derechos reservados
           </p>
-
         </div>
 
         <div className="flex flex-row items-center gap-6 md:gap-8 mt-4 md:mt-0 md:mr-12">
-          <a href="/Warning" className="hover:text-neutral-200 transition">
+          <a href="/warning/" className="hover:text-neutral-200 transition">
             Legal Notice
           </a>
-          <a href="/Privacy" className="hover:text-neutral-200 transition">
+          <a href="/privacy/" className="hover:text-neutral-200 transition">
             Privacy
           </a>
         </div>

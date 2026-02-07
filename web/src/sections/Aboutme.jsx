@@ -22,14 +22,7 @@ export default function About() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="
-      text-xl md:text-3xl
-      uppercase
-      tracking-[0.4em]
-      text-white
-      font-bold
-      mb-10
-    "
+          className="text-xl md:text-3xl uppercase tracking-[0.4em] text-white font-bold mb-10"
         >
           <span className="block mb-3">
             Cinematic Color Grading for
