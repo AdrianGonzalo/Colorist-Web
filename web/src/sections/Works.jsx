@@ -21,10 +21,10 @@ export default function Works() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-extralight tracking-wide text-gray-800 dark:text-gray-100 mb-12 relative text-center"
+        className="text-4xl md:text-5xl font-extralight tracking-wide text-white mb-12 relative text-center"
       >
         Works
-        <span className="absolute -bottom-2 left-1/2 w-20 h-[2px] bg-neutral-700 dark:bg-neutral-300 transform -translate-x-1/2" />
+        <span className="absolute -bottom-2 left-1/2 w-20 h-[2px] bg-neutral-300 transform -translate-x-1/2" />
       </motion.h2>
 
       <FilterBar

@@ -11,15 +11,32 @@ export default function About() {
       <Clients />
 
       {/* HERO TEXT */}
-      <div className="space-y-4 text-center mt-30 max-w-3xl mx-auto px-4">
-        <p className="text md:text-2xl uppercase tracking-[0.35em] text-white font-bold mb-5">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        className="space-y-6 text-center mt-40 max-w-6xl mx-auto px-4"
+      >
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="text-xl md:text-4xl uppercase tracking-[0.4em] text-white font-bold"
+        >
           Cinematic Color Grading for Premium Film & Commercials
-        </p>
+        </motion.p>
 
-        <p className="italic text-lg font-extralight text-neutral-400 leading-relaxed">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="italic text-xl md:text-2xl font-extralight text-neutral-400 leading-relaxed"
+        >
           "Transforming your footage into visually striking, high-end cinematic stories."
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
+
 
       {/* ABOUT SECTION */}
       <div
@@ -48,12 +65,13 @@ export default function About() {
 
         {/* TEXT */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="md:w-2/3 text-center md:text-left space-y-7 text-neutral-300 leading-relaxed z-10 font-bold"
+          className="md:w-2/3 text-center md:text-left space-y-7 text-neutral-300 leading-relaxed z-10 font-bold text-base md:text-lg lg:text-xl"
         >
+
           <p>
             I’m a{" "}
             <span className="font-semibold text-white">
@@ -105,6 +123,7 @@ export default function About() {
             </a>
           </div>
         </motion.div>
+
       </div>
     </section>
   );
