@@ -11,7 +11,7 @@ const special = Special_Gothic_Expanded_One({
 });
 
 const images = [
-  "/Carrusel/Imagen1.jpg",
+  "/Carrusel/Imagen1.png",
   "/Carrusel/Imagen2.jpg",
   "/Carrusel/Imagen3.jpg",
   "/Carrusel/Imagen4.jpg",
