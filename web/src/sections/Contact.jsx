@@ -40,11 +40,12 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-extralight tracking-wide text-white mb-12 relative"
+        className="text-4xl md:text-5xl font-extralight tracking-wide text-white mb-12 relative text-center"
       >
         Contact
-        <span className="absolute -bottom-2 left-1/2 md:left-0 w-20 h-[2px] bg-neutral-300 transform -translate-x-1/2 md:translate-x-0" />
+        <span className="absolute left-1/2 -bottom-3 w-20 h-[2px] bg-white transform -translate-x-1/2" />
       </motion.h2>
+
 
 
       <div className="flex flex-col md:flex-row justify-between items-start w-full max-w-5xl gap-12">
