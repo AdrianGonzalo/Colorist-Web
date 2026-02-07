@@ -69,7 +69,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="md:w-2/3 text-center md:text-left space-y-7 text-neutral-300 leading-relaxed z-10 text-base md:text-lg lg:text-xl"
+          className="md:w-2/3 text-center md:text-left space-y-7 text-neutral-400 leading-relaxed z-10 text-base md:text-lg lg:text-xl"
         >
 
           <p>

@@ -146,6 +146,27 @@ export default function Privacy() {
           </div>
         </motion.div>
 
+
+        {/* Cookies */}
+        <div className="space-y-2">
+          <h2 className="text-2xl md:text-3xl font-semibold text-left">
+            Cookies
+          </h2>
+          <p className="text-neutral-300 leading-relaxed text-left">
+            This website does not use its own cookies for analytics or advertising
+            purposes.
+          </p>
+          <p className="text-neutral-300 leading-relaxed text-left">
+            Only technical cookies strictly necessary for the proper functioning of
+            the website may be used.
+          </p>
+          <p className="text-neutral-300 leading-relaxed text-left">
+            Embedded third-party content, such as YouTube videos, may set cookies or
+            collect data according to their own privacy policies when the user
+            interacts with them.
+          </p>
+        </div>
+
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
