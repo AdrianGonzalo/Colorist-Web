@@ -77,13 +77,15 @@ export default function Navbar() {
           >
             Works
           </a>
+
           <a
-            href="/Blog"
+            href="/blog.html"
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-gray-400 transition-colors"
           >
             Blog
           </a>
+
           <a
             href="#contacto"
             onClick={(e) => handleSmoothScroll(e, "contacto")}
@@ -159,13 +161,15 @@ export default function Navbar() {
           >
             Works
           </a>
+
           <a
-            href="/Blog"
+            href="/blog.html"
             onClick={() => setMobileMenuOpen(false)}
             className="hover:text-gray-400 transition-colors"
           >
             Blog
           </a>
+
           <a
             href="#contacto"
             onClick={(e) => handleSmoothScroll(e, "contacto")}
