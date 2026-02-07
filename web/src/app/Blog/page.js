@@ -1,3 +1,10 @@
+export const metadata = {
+    title: "Blog | Helí Suárez – Freelance Colorist",
+    description:
+        "Articles, insights and thoughts on color grading, cinematography and post-production by freelance colorist Helí Suárez.",
+};
+
+
 import { sanityClient } from "@/lib/sanity";
 import PostList from "./PostList";
 

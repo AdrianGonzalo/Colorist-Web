@@ -1,10 +1,3 @@
-export const metadata = {
-  title: "Privacy Policy",
-  description:
-    "Privacy policy and data protection information for the website of Helí Suárez, professional colorist.",
-};
-
-
 "use client";
 
 import { motion } from "framer-motion";
