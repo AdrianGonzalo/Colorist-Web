@@ -13,6 +13,17 @@ const interTight = Inter_Tight({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+export const metadata = {
+  title: {
+    default:
+      "Helí Suárez – Freelance Colorist for Film, Commercials & Music Videos",
+    template: "%s | Helí Suárez",
+  },
+  description:
+    "Freelance colorist specializing in film, commercials and music videos. High-end color grading for international productions.",
+};
+
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -22,6 +33,6 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
       </body>
-    </html >
+    </html>
   );
 }

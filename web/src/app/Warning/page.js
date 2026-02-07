@@ -1,3 +1,10 @@
+export const metadata = {
+  title: "Legal Notice",
+  description:
+    "Legal notice and terms of use for the website of Helí Suárez, professional colorist.",
+};
+
+
 "use client";
 
 import { motion } from "framer-motion";

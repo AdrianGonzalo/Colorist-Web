@@ -22,9 +22,21 @@ export default function About() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-xl md:text-3xl uppercase tracking-[0.4em] text-white font-bold"
+          className="
+      text-xl md:text-3xl
+      uppercase
+      tracking-[0.4em]
+      text-white
+      font-bold
+      mb-10
+    "
         >
-          Cinematic Color Grading for Premium Film & Commercials
+          <span className="block mb-3">
+            Cinematic Color Grading for
+          </span>
+          <span className="block">
+            Film, Commercials & Music Videos
+          </span>
         </motion.p>
 
         <motion.p
@@ -36,6 +48,7 @@ export default function About() {
           "Transforming your footage into visually striking, high-end cinematic stories."
         </motion.p>
       </motion.div>
+
 
 
       {/* ABOUT SECTION */}
