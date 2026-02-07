@@ -22,7 +22,7 @@ export default function About() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-xl md:text-4xl uppercase tracking-[0.4em] text-white font-bold"
+          className="text-xl md:text-3xl uppercase tracking-[0.4em] text-white font-bold"
         >
           Cinematic Color Grading for Premium Film & Commercials
         </motion.p>
@@ -69,7 +69,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="md:w-2/3 text-center md:text-left space-y-7 text-neutral-300 leading-relaxed z-10 font-bold text-base md:text-lg lg:text-xl"
+          className="md:w-2/3 text-center md:text-left space-y-7 text-neutral-300 leading-relaxed z-10 text-base md:text-lg lg:text-xl"
         >
 
           <p>
