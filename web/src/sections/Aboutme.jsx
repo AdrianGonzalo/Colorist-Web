@@ -7,24 +7,26 @@ import Clients from "@/components/Clients";
 export default function About() {
   return (
     <section className="w-full">
+
       <Clients />
 
+      {/* HERO TEXT */}
       <div className="space-y-4 text-center mt-30 max-w-3xl mx-auto px-4">
         <p className="text md:text-2xl uppercase tracking-[0.35em] text-white font-bold mb-5">
           Cinematic Color Grading for Premium Film & Commercials
         </p>
 
-        <p className="italic text-lg font-extralight text-neutral-700 dark:text-neutral-300 leading-relaxed">
+        <p className="italic text-lg font-extralight text-neutral-400 leading-relaxed">
           "Transforming your footage into visually striking, high-end cinematic stories."
         </p>
       </div>
 
-
-
+      {/* ABOUT SECTION */}
       <div
         id="about"
         className="relative flex flex-col md:flex-row items-center px-8 py-30 overflow-hidden max-w-7xl mx-auto"
       >
+        {/* IMAGE */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -44,61 +46,57 @@ export default function About() {
           </div>
         </motion.div>
 
+        {/* TEXT */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="md:w-2/3 text-center md:text-left space-y-7 text-gray-700 dark:text-gray-700 leading-relaxed z-10 font-bold"
+          className="md:w-2/3 text-center md:text-left space-y-7 text-neutral-300 leading-relaxed z-10 font-bold"
         >
-
-
-
-          {/* <h2 className="text-4xl md:text-5xl font-extralight tracking-wide text-gray-800 dark:text-gray-100 mb-8 relative">
-            About me
-            <span className="absolute -bottom-2 left-1/2 md:left-0 w-20 h-[2px] bg-neutral-700 dark:bg-neutral-300 transform -translate-x-1/2 md:translate-x-0" />
-          </h2> */}
-
-          <p className="text-neutral-700 dark:text-neutral-300">
+          <p>
             I’m a{" "}
-            <span className="font-semibold text-neutral-900 dark:text-white">
+            <span className="font-semibold text-white">
               senior colorist
-            </span >{" "}
+            </span>{" "}
             with professional experience since{" "}
-            <span className="text-neutral-900 dark:text-neutral-100">2016</span>,
-            specializing in cinematic color grading for{" "}
-            <span className="text-neutral-900 dark:text-neutral-100">
+            <span className="text-white">2016</span>, specializing in cinematic
+            color grading for{" "}
+            <span className="text-white">
               music videos, film, and commercials
-            </span>
-            .
+            </span>.
           </p>
 
-          <p className="text-neutral-600 dark:text-neutral-400">
+          <p className="text-neutral-400">
             I work in{" "}
-            <span className="font-medium text-neutral-900 dark:text-neutral-100">
+            <span className="font-medium text-white">
               DaVinci Resolve
             </span>{" "}
             to craft digital cinematic looks and authentic{" "}
-            <span className="italic">film-inspired, analog aesthetics</span>, adapting
-            each grade to the creative and technical needs of every project.
+            <span className="italic">
+              film-inspired, analog aesthetics
+            </span>
+            , adapting each grade to the creative and technical needs of every
+            project.
           </p>
 
-          <p className="text-neutral-600 dark:text-neutral-400">
+          <p className="text-neutral-400">
             My focus is on solving image issues, creating{" "}
-            <span className="text-neutral-900 dark:text-neutral-100">
+            <span className="text-white">
               visual consistency
             </span>{" "}
             and elevating{" "}
-            <span className="text-neutral-900 dark:text-neutral-100">
+            <span className="text-white">
               production value
             </span>
             , always serving the story and the emotion behind the image.
           </p>
 
+          {/* CTA */}
           <div className="pt-6 flex justify-center md:justify-start">
             <a
               href="#contact"
-              className="group inline-flex items-center gap-3 px-7 py-3 border border-neutral-800 dark:border-neutral-200 text-neutral-800 dark:text-neutral-200 font-light tracking-wide transition-all duration-300 hover:bg-neutral-800 hover:text-white dark:hover:bg-neutral-200 dark:hover:text-neutral-900"
+              className="group inline-flex items-center gap-3 px-7 py-3 border border-neutral-200 text-neutral-200 font-light tracking-wide transition-all duration-300 hover:bg-neutral-200 hover:text-neutral-900"
             >
               Let’s elevate your project
               <span className="transform transition-transform duration-300 group-hover:translate-x-1">
