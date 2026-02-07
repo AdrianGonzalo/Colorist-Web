@@ -16,7 +16,7 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.9, ease: "easeOut" }}
-        className="space-y-6 text-center mt-40 max-w-6xl mx-auto px-4"
+        className="space-y-6 text-center mt-40 max-w-6xl mx-auto px-"
       >
         <motion.p
           initial={{ opacity: 0, y: 10 }}
