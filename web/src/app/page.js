@@ -14,23 +14,22 @@ export default function Home() {
     <main className="relative flex flex-col">
       <div className="pointer-events-none absolute inset-0 mix-blend-soft-light bg-[url('/Textures/texture2.png')] bg-repeat"></div>
 
-      <section id="inicio" className="relative w-full h-screen overflow-hidden">
+      <section id="home" className="relative w-full h-screen overflow-hidden">
         <Carrusel />
       </section>
 
       <section
-        id="artista"
         className="text-white flex flex-col items-center justify-center"
       >
         <About />
       </section>
 
-      <section id="trabajos">
+      <section id="works">
         <Works />
       </section>
 
       <section
-        id="contacto"
+        id="contact"
         className="text-white flex flex-col items-center justify-center"
       >
         <Contact />

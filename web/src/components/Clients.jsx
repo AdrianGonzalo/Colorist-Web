@@ -5,13 +5,17 @@ import { motion } from "framer-motion";
 
 const clients = [
     { name: "Nike", logo: "/Clients/Nike.svg" },
-    { name: "Hugo Boss", logo: "/Clients/Hugo.svg" },
-    { name: "Foot Locker", logo: "/Clients/Foot.svg" },
     { name: "Pull&Bear", logo: "/Clients/Pull&Bear.svg" },
+    { name: "Lacoste", logo: "/Clients/Lacoste.svg" },
+    { name: "Hugo Boss", logo: "/Clients/Hugo.svg" },
+    { name: "Netflix", logo: "/Clients/Netflix.svg" },
+    { name: "Foot Locker", logo: "/Clients/Foot.svg" },
     { name: "Voll-Damm", logo: "/Clients/Voll-Damm.svg", large: true },
-    { name: "Kutxabank", logo: "/Clients/Kutxabank.svg" },
     { name: "Oysho", logo: "/Clients/Oysho.svg" },
     { name: "Metropolitan", logo: "/Clients/ClubM.svg", large: true },
+    { name: "Kutxabank", logo: "/Clients/Kutxabank.svg" },
+
+
 ];
 
 // Animations
@@ -64,8 +68,8 @@ export default function Clients() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="grid grid-cols-2 [@media(min-width:900px)]:grid-cols-4 lg:grid-cols-8 place-items-center gap-y-12 w-full"
-                >
+                    className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-y-12 w-full" >
+
                     {clients.map((client) => {
                         const isLarge = client.large;
 
@@ -96,6 +100,6 @@ export default function Clients() {
                     })}
                 </motion.div>
             </div>
-        </section>
+        </section >
     );
 }

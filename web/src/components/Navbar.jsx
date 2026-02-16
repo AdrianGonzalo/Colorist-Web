@@ -57,22 +57,22 @@ export default function Navbar() {
         {/* MENÚ DESKTOP */}
         <div className="hidden md:flex space-x-10 text-xl font-medium text-white">
           <a
-            href="#inicio"
-            onClick={(e) => handleSmoothScroll(e, "inicio")}
+            href="#home"
+            onClick={(e) => handleSmoothScroll(e, "home")}
             className="hover:text-gray-400 transition-colors"
           >
-            Inicio
+            Home
           </a>
           <a
-            href="#artista"
-            onClick={(e) => handleSmoothScroll(e, "artista")}
+            href="#artist"
+            onClick={(e) => handleSmoothScroll(e, "artist")}
             className="hover:text-gray-400 transition-colors"
           >
             Artist
           </a>
           <a
-            href="#trabajos"
-            onClick={(e) => handleSmoothScroll(e, "trabajos")}
+            href="#works"
+            onClick={(e) => handleSmoothScroll(e, "works")}
             className="hover:text-gray-400 transition-colors"
           >
             Works
@@ -87,8 +87,8 @@ export default function Navbar() {
           </a>
 
           <a
-            href="#contacto"
-            onClick={(e) => handleSmoothScroll(e, "contacto")}
+            href="#contact"
+            onClick={(e) => handleSmoothScroll(e, "contact")}
             className="hover:text-gray-400 transition-colors"
           >
             Contact
@@ -141,22 +141,22 @@ export default function Navbar() {
           <div className="bg-gray-400 w-full h-0.5" />
 
           <a
-            href="#inicio"
-            onClick={(e) => handleSmoothScroll(e, "inicio")}
+            href="#home"
+            onClick={(e) => handleSmoothScroll(e, "home")}
             className="hover:text-gray-400 transition-colors"
           >
-            Inicio
+            Home
           </a>
           <a
-            href="#artista"
-            onClick={(e) => handleSmoothScroll(e, "artista")}
+            href="#artist"
+            onClick={(e) => handleSmoothScroll(e, "artist")}
             className="hover:text-gray-400 transition-colors"
           >
             Artist
           </a>
           <a
-            href="#trabajos"
-            onClick={(e) => handleSmoothScroll(e, "trabajos")}
+            href="#works"
+            onClick={(e) => handleSmoothScroll(e, "works")}
             className="hover:text-gray-400 transition-colors"
           >
             Works
@@ -171,8 +171,8 @@ export default function Navbar() {
           </a>
 
           <a
-            href="#contacto"
-            onClick={(e) => handleSmoothScroll(e, "contacto")}
+            href="#contact"
+            onClick={(e) => handleSmoothScroll(e, "contact")}
             className="hover:text-gray-400 transition-colors"
           >
             Contact

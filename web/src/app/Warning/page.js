@@ -27,8 +27,12 @@ export default function Warning() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-neutral-300 text-lg leading-relaxed text-left"
         >
-          Welcome to Helí Suárez’s website. By using this website, you accept
-          the terms and conditions set forth here.
+          This Legal Notice governs the use of the website{" "}
+          <span className="text-white">
+            https://helisuarezcolor.com
+          </span>.
+          By accessing and browsing this website, you accept the terms
+          set forth herein.
         </motion.p>
 
         <motion.div
@@ -48,8 +52,7 @@ export default function Warning() {
                 href="mailto:heli.suarez@outlook.com"
                 className="text-blue-400 underline"
               >
-                {" "}
-                heli.suarez@outlook.com
+                {" "}heli.suarez@outlook.com
               </a>
             </p>
           </div>
@@ -60,9 +63,11 @@ export default function Warning() {
               Intellectual Property
             </h2>
             <p className="text-neutral-300 leading-relaxed text-left">
-              All content on this website, including text, images, design, and
-              source code, is the property of Helí Suárez and may not be
-              reproduced, distributed, or modified without express permission.
+              All content on this website, including text, images,
+              audiovisual material, design, and source code, is the
+              property of Helí Suárez unless otherwise stated.
+              Any reproduction, distribution, modification, or public
+              communication without prior authorization is strictly prohibited.
             </p>
           </div>
 
@@ -72,21 +77,37 @@ export default function Warning() {
               Disclaimer
             </h2>
             <p className="text-neutral-300 leading-relaxed text-left">
-              Helí Suárez is not responsible for errors, omissions, or outcomes
-              derived from the use of this website, including third-party links.
-              Use of the information is at the user’s own risk.
+              Helí Suárez is not responsible for errors, omissions,
+              technical issues, or outcomes derived from the use of this
+              website. External links are provided for informational
+              purposes only and do not imply endorsement.
+              Use of the information contained on this website is at
+              the user’s own risk.
             </p>
           </div>
 
-          {/* Terms of Use */}
+          {/* Third-Party Services */}
           <div className="space-y-2">
             <h2 className="text-2xl md:text-3xl font-semibold text-left">
-              Terms of Use
+              Third-Party Services
             </h2>
             <p className="text-neutral-300 leading-relaxed text-left">
-              Use of the website for illegal, offensive, or rights-infringing
-              purposes is prohibited. Accessing and browsing this site implies
-              acceptance of these terms.
+              This website may include third-party services such as
+              Google Analytics or embedded media platforms (e.g., YouTube).
+              The use of such services is subject to their respective
+              terms and privacy policies.
+            </p>
+          </div>
+
+          {/* Jurisdiction */}
+          <div className="space-y-2">
+            <h2 className="text-2xl md:text-3xl font-semibold text-left">
+              Jurisdiction
+            </h2>
+            <p className="text-neutral-300 leading-relaxed text-left">
+              This website is governed by Spanish law.
+              Any disputes arising from its use shall be subject
+              to the courts of Spain.
             </p>
           </div>
         </motion.div>

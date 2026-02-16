@@ -132,7 +132,7 @@ export default function VideoModal({
   ---------------------------------- */
   const Gallery = () => (
     <div className="mt-6 w-full">
-      <h3 className="text-white text-xl font-bold mb-6">Gallery</h3>
+      <h3 className="text-white text-2xl font-semibold mb-6">Gallery</h3>
 
       <div className="grid grid-cols-3 gap-2">
         {video.gallery?.length ? (
@@ -231,14 +231,14 @@ export default function VideoModal({
                   MrPix3l
                 </h2>
 
-                <h3 className="text-blue-600 font-semibold text-xl">
+                <h3 className="text-white font-semibold text-2xl mb-5">
                   {video.category}
                 </h3>
-                <p className="text-white text-xl font-bold mb-6">
+                <p className="text-white text-xl font-light mb-6">
                   {video.title}
                 </p>
 
-                <div className="hidden md:block">
+                <div className="hidden md:block ">
                   <Gallery />
                 </div>
               </aside>

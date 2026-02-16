@@ -69,12 +69,13 @@ export default function Contact() {
             href="https://mail.google.com/mail/?view=cm&to=heli.suarez@outlook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2"
+            className="flex items-center justify-center text-center gap-2 md:justify-start md:text-left"
           >
             <Mail size={18} />
             Contact via email,{" "}
             <span className="underline">heli.suarez@outlook.com</span>
           </a>
+
 
           <div className="flex justify-center md:justify-start gap-4 mt-6">
             <a

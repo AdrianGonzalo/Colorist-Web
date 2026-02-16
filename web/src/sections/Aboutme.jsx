@@ -6,42 +6,46 @@ import Clients from "@/components/Clients";
 
 export default function About() {
   return (
-    <section className="w-full">
+    <section className="w-full" >
 
       <Clients />
-
       {/* HERO TEXT */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
-        className="space-y-6 text-center mt-40 max-w-6xl mx-auto px-"
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        id="artist"
+        className="space-y-6 text-center mt-33 max-w-6xl mx-auto "
       >
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-xl md:text-3xl uppercase tracking-[0.4em] text-white font-bold mb-10"
+          className="text-base md:text-3xl uppercase tracking-[0.4em] text-white font-bold mb-10 px-1"
         >
-          <span className="block mb-3">
+          {/* Mobile */}
+          <p className="block min-[1000px]:hidden text-xl text-white px-2">
+            Films • Commercials • Music Videos
+          </p>
+
+          {/* Desktop */}
+          <p className="hidden min-[1000px]:block text-xl md:text-3xl tracking-[0.4em] font-bold text-white">
             Cinematic Color Grading for
-          </span>
-          <span className="block">
+            <br />
             Film, Commercials & Music Videos
-          </span>
-        </motion.p>
+          </p>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="italic text-xl md:text-2xl font-extralight text-neutral-400 leading-relaxed"
+          className="italic text-lg md:text-2xl font-extralight text-neutral-400 leading-relaxed px-2"
         >
           "Transforming your footage into visually striking, high-end cinematic stories."
         </motion.p>
       </motion.div>
-
 
 
       {/* ABOUT SECTION */}
@@ -71,10 +75,10 @@ export default function About() {
 
         {/* TEXT */}
         <motion.div
-          initial={false}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8 }}
+          transition={{ duration: 0.8 }}
           className="md:w-2/3 text-center md:text-left space-y-7 text-neutral-400 leading-relaxed z-10 text-base md:text-lg lg:text-xl"
         >
 

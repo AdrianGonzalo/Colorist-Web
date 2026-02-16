@@ -152,20 +152,38 @@ export default function Privacy() {
           <h2 className="text-2xl md:text-3xl font-semibold text-left">
             Cookies
           </h2>
+
           <p className="text-neutral-300 leading-relaxed text-left">
-            This website does not use its own cookies for analytics or advertising
-            purposes.
+            This website uses technical cookies strictly necessary for its proper functioning.
           </p>
+
           <p className="text-neutral-300 leading-relaxed text-left">
-            Only technical cookies strictly necessary for the proper functioning of
-            the website may be used.
+            This website also uses analytics cookies provided by Google Analytics
+            to measure traffic, understand visitor behavior, and improve overall
+            performance.
           </p>
+
           <p className="text-neutral-300 leading-relaxed text-left">
-            Embedded third-party content, such as YouTube videos, may set cookies or
-            collect data according to their own privacy policies when the user
-            interacts with them.
+            Google Analytics may collect anonymized information such as IP address,
+            browser type, device information, pages visited, and time spent on the site.
+            This data is used exclusively for statistical and performance analysis.
+          </p>
+
+          <p className="text-neutral-300 leading-relaxed text-left">
+            For more information about how Google processes data, please refer to
+            Google's Privacy Policy:
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 underline"
+            >
+              {" "}Google Privacy Policy
+            </a>.
           </p>
         </div>
+
+
 
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
